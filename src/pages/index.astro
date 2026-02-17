@@ -33,11 +33,13 @@ import { siteConfig } from '../config';
       <p class="tile__text">Naturnahe Gärten mit ökologischem Mehrwert.</p>
       <span class="tile__arrow" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="#kontakt" class="tile tile--dark">
-      <h2 class="tile__title">Kontakt</h2>
-      <p class="tile__text">Projekt besprechen oder Beratung anfragen.</p>
-      <span class="tile__arrow" aria-hidden="true">&darr;</span>
-    </a>
+    <div class="tile tile--dark tile--legal">
+      <nav class="tile__legal" aria-label="Rechtliches">
+        <a href="/impressum">Impressum</a>
+        <a href="/datenschutz">Datenschutz</a>
+      </nav>
+      <p class="tile__copyright">&copy; {new Date().getFullYear()} {siteConfig.companyName}</p>
+    </div>
 
     <!-- Brunk Garten -->
     <div class="tile tile--primary">
@@ -245,6 +247,36 @@ import { siteConfig } from '../config';
     margin: 0;
     opacity: 0.8;
     font-size: var(--font-size-sm);
+  }
+
+  /* Rechtliches */
+  .tile--legal {
+    justify-content: flex-end;
+  }
+
+  .tile__legal {
+    display: flex;
+    gap: var(--space-xl);
+  }
+
+  .tile__legal a {
+    color: var(--color-text-inverse);
+    opacity: 0.7;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity var(--transition-fast);
+  }
+
+  .tile__legal a:hover {
+    opacity: 1;
+    color: var(--color-text-inverse);
+  }
+
+  .tile__copyright {
+    margin-top: var(--space-md);
+    font-size: var(--font-size-xs);
+    opacity: 0.4;
   }
 
   /* Kontakt */
