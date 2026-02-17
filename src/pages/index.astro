@@ -17,16 +17,44 @@ import { siteConfig } from '../config';
       <span class="tile__arrow" aria-hidden="true">&rarr;</span>
     </a>
 
+    <!-- Philosophie (grün) -->
+    <div class="tile tile--primary">
+      <blockquote class="tile__quote">
+        <p>Du wirst überrascht sein, wie viel Leben in einen Raum passt.</p>
+        <cite>Daniel Brunk, Gärtnermeister</cite>
+      </blockquote>
+      <ul class="tile__list">
+        <li>Fachgerechte Ausführung</li>
+        <li>Fachgerechte Pflege</li>
+        <li>Ressourcen schonen</li>
+        <li>Ökologische Bewirtschaftung</li>
+        <li>Verzicht auf chemischen Pflanzenschutz</li>
+      </ul>
+    </div>
     <a href="/leistungen/bewaesserung" class="tile tile--alt">
       <h2 class="tile__title">Bewässerung</h2>
       <p class="tile__text">Professionelle Bewässerungsanlagen. Automatisch, wassersparend, zuverlässig.</p>
       <span class="tile__arrow" aria-hidden="true">&rarr;</span>
     </a>
+
     <a href="/leistungen/maehroboter" class="tile">
       <h2 class="tile__title">Mähroboter</h2>
       <p class="tile__text">Husqvarna Automower — Verkauf, Installation und Service.</p>
       <span class="tile__arrow" aria-hidden="true">&rarr;</span>
     </a>
+    <!-- Klimagarten (petrol) -->
+    <div class="tile tile--secondary">
+      <h2 class="tile__title">Klimagarten</h2>
+      <p class="tile__text">Gärten für den Wandel wappnen.</p>
+      <dl class="tile__dl">
+        <dt>Begrünung</dt>
+        <dd>Pflanzen haben gleich mehrere positive Eigenschaften auf unser Klima.</dd>
+        <dt>Wassermanagement</dt>
+        <dd>Die Art und Menge an Wasser die uns in Zukunft zur Verfügung steht verändert sich.</dd>
+        <dt>Artenvielfalt</dt>
+        <dd>Der Verlust an Lebensraum oder ganzer Arten hat Auswirkungen auf unser empfindliches Ökosystem.</dd>
+      </dl>
+    </div>
 
     <a href="/leistungen/artenschutz" class="tile">
       <h2 class="tile__title">Artenschutz</h2>
@@ -60,32 +88,6 @@ import { siteConfig } from '../config';
       <p class="tile__copyright">&copy; {new Date().getFullYear()} {siteConfig.companyName}</p>
     </div>
 
-    <!-- Brunk Garten -->
-    <div class="tile tile--primary">
-      <blockquote class="tile__quote">
-        <p>Du wirst überrascht sein, wie viel Leben in einen Raum passt.</p>
-        <cite>Daniel Brunk, Gärtnermeister</cite>
-      </blockquote>
-      <ul class="tile__list">
-        <li>Fachgerechte Ausführung</li>
-        <li>Fachgerechte Pflege</li>
-        <li>Ressourcen schonen</li>
-        <li>Ökologische Bewirtschaftung</li>
-        <li>Verzicht auf chemischen Pflanzenschutz</li>
-      </ul>
-    </div>
-    <div class="tile tile--secondary">
-      <h2 class="tile__title">Klimagarten</h2>
-      <p class="tile__text">Gärten für den Wandel wappnen.</p>
-      <dl class="tile__dl">
-        <dt>Begrünung</dt>
-        <dd>Pflanzen haben gleich mehrere positive Eigenschaften auf unser Klima.</dd>
-        <dt>Wassermanagement</dt>
-        <dd>Die Art und Menge an Wasser die uns in Zukunft zur Verfügung steht verändert sich.</dd>
-        <dt>Artenvielfalt</dt>
-        <dd>Der Verlust an Lebensraum oder ganzer Arten hat Auswirkungen auf unser empfindliches Ökosystem.</dd>
-      </dl>
-    </div>
   </section>
 </Layout>
 
