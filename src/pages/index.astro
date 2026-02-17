@@ -3,49 +3,31 @@ import Layout from '../components/Layout.astro';
 import Section from '../components/Section.astro';
 import Card from '../components/Card.astro';
 import { siteConfig } from '../config';
-
-const weitereLeistungen = [
-  'Bodendecker', 'Gartenwege', 'Beratung', 'Baumpflege', 'Holzterrassen',
-  'Teichbau', 'Stahlband', 'Hochbeete', 'Nährstoffanalyse', 'Kräuterspiralen',
-  'Pflanzgefäße', 'Blumenwiesen', 'Rollrasen', 'Palisaden', 'Maulwurfsperre',
-  'Rasensaat', 'Formhecken', 'Gehölze', 'Sichtschutz', 'Pergolen',
-  'Pflanzenschutz', 'Pflanzkonzepte', 'Corten-Stahl', 'Hausbäume', 'Grünpflege',
-  'Baggerarbeiten', 'Stufenanlagen', 'Planung', 'Naturstein', 'Klinkerpflaster',
-  'Dachbegrünung', 'Obstgehölze', 'Zäune', 'Frühjahrsblüher', 'Wildhecken',
-  'Trockenmauern', 'Hangbefestigung', 'Pflasterarbeiten', 'Mähkanten',
-  'Vertikutieren', 'CAD', 'Stauden', 'Bodenanalyse', 'Düngung', 'Pflaster',
-  'Bonsai',
-];
 ---
 
 <Layout>
   <!-- 1. Leistungen -->
-  <Section title="Unsere Leistungen" id="leistungen">
+  <Section id="leistungen">
     <div class="grid">
-      <Card title="Artenschutz und Habitatpflege" href="/leistungen/artenschutz">
-        <p>Als Landschaftsgärtner sind wir stark mit der Natur verbunden und setzen uns für den Schutz der Arten und den Erhalt bzw. die Förderung von Lebensräumen ein.</p>
-      </Card>
-      <Card title="Bewässerungsanlagen" href="/leistungen/bewaesserung">
-        <p>Professionelle Bewässerungsanlagen mit mehr als 10 Jahren Erfahrung. Ob automatisch oder manuell gesteuert — Systeme für Hecken sind unsere meisterbauten Lösungen.</p>
-      </Card>
-      <Card title="Unkrautmanagement" href="/leistungen/unkrautmanagement">
-        <p>Mit unserem speziellen Verfahren entfernen wir Unkraut auf nahezu allen Flächen. Zusätzlich sind wir in der Lage Oberflächen schonend zu reinigen und zu desinfizieren.</p>
-      </Card>
-      <Card title="Mähroboter" href="/leistungen/maehroboter">
-        <p>„In 10 Jahren gehören Mähroboter in den Garten, wie heute Spülmaschinen in die Küche." Wir setzen auf den Marktführer Husqvarna Automower.</p>
+      <Card title="GaLaBau" href="/leistungen/galabau">
+        <p>Garten- und Landschaftsbau vom Meisterbetrieb. Planung, Neuanlage und Umgestaltung — alles aus einer Hand.</p>
       </Card>
       <Card title="Gartenpflege" href="/leistungen/gartenpflege">
-        <p>Ein Garten ist eine planvolle, meist künstlerische Anlage. Dabei verfolgt sie neben dem praktischen Nutzen immer auch ein optisches Ziel.</p>
+        <p>Ein Garten ist eine planvolle, meist künstlerische Anlage. Regelmäßige Pflege erhält Funktion und Optik.</p>
+      </Card>
+      <Card title="Bewässerung" href="/leistungen/bewaesserung">
+        <p>Professionelle Bewässerungsanlagen mit mehr als 10 Jahren Erfahrung. Automatisch, wassersparend, zuverlässig.</p>
+      </Card>
+      <Card title="Mähroboter" href="/leistungen/maehroboter">
+        <p>Husqvarna Automower — Verkauf, Installation und Service vom zertifizierten Fachbetrieb.</p>
+      </Card>
+      <Card title="Artenschutz" href="/leistungen/artenschutz">
+        <p>Schutz der Arten und Förderung von Lebensräumen. Naturnahe Gärten mit ökologischem Mehrwert.</p>
+      </Card>
+      <Card title="Kontakt" href="#kontakt">
+        <p>Projekt besprechen, Beratung anfragen oder einfach Hallo sagen.</p>
       </Card>
     </div>
-
-    <h3 class="weitere-titel">Weitere Leistungen</h3>
-    <div class="tagcloud">
-      {weitereLeistungen.map((tag) => (
-        <span class="tag">{tag}</span>
-      ))}
-    </div>
-    <p class="tagcloud-more">... und mehr!</p>
   </Section>
 
   <!-- 2. Brunk Garten und Klimagarten -->
@@ -126,44 +108,6 @@ const weitereLeistungen = [
     gap: var(--space-xl);
   }
 
-  /* Weitere Leistungen */
-  .weitere-titel {
-    text-align: center;
-    margin-top: var(--space-3xl);
-    margin-bottom: var(--space-xl);
-  }
-
-  .tagcloud {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--space-sm);
-  }
-
-  .tag {
-    display: inline-block;
-    padding: 6px 16px;
-    background: rgba(153, 195, 59, 0.1);
-    color: var(--color-text);
-    border-radius: var(--radius-full);
-    font-size: var(--font-size-sm);
-    font-weight: 500;
-    transition: background-color var(--transition-fast);
-  }
-
-  .tag:hover {
-    background: var(--color-primary);
-  }
-
-  .tagcloud-more {
-    text-align: center;
-    margin-top: var(--space-xl);
-    font-family: var(--font-family-heading);
-    font-size: var(--font-size-xl);
-    font-weight: 600;
-    color: var(--color-primary);
-  }
-
   /* Zwei-Spalten: Philosophie + Klima */
   .two-col {
     display: grid;
@@ -239,7 +183,7 @@ const weitereLeistungen = [
   }
 
   /* Responsive */
-  @media (min-width: 768px) {
+  @media (min-width: 640px) {
     .grid {
       grid-template-columns: repeat(2, 1fr);
     }
