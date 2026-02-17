@@ -1,166 +1,185 @@
 ---
 import Layout from '../components/Layout.astro';
-import Section from '../components/Section.astro';
 import { siteConfig } from '../config';
-
-const leistungen = [
-  { title: 'GaLaBau', href: '/leistungen/galabau', text: 'Garten- und Landschaftsbau vom Meisterbetrieb. Planung, Neuanlage und Umgestaltung.' },
-  { title: 'Gartenpflege', href: '/leistungen/gartenpflege', text: 'Regelmäßige Pflege erhält Funktion und Optik Ihres Gartens.' },
-  { title: 'Bewässerung', href: '/leistungen/bewaesserung', text: 'Professionelle Bewässerungsanlagen. Automatisch, wassersparend, zuverlässig.' },
-  { title: 'Mähroboter', href: '/leistungen/maehroboter', text: 'Husqvarna Automower — Verkauf, Installation und Service.' },
-  { title: 'Artenschutz', href: '/leistungen/artenschutz', text: 'Naturnahe Gärten mit ökologischem Mehrwert.' },
-  { title: 'Kontakt', href: '#kontakt', text: 'Projekt besprechen oder Beratung anfragen.' },
-];
 ---
 
 <Layout>
-  <!-- 1. Leistungen: Horizontal Scroll -->
-  <section class="cards-scroll" id="leistungen">
-    <div class="cards-track">
-      {leistungen.map((l) => (
-        <a href={l.href} class="scroll-card">
-          <h2 class="scroll-card__title">{l.title}</h2>
-          <p class="scroll-card__text">{l.text}</p>
-          <span class="scroll-card__arrow" aria-hidden="true">&rarr;</span>
-        </a>
-      ))}
+  <section class="tiles">
+    <!-- Leistungen -->
+    <a href="/leistungen/galabau" class="tile">
+      <h2 class="tile__title">GaLaBau</h2>
+      <p class="tile__text">Garten- und Landschaftsbau vom Meisterbetrieb. Planung, Neuanlage und Umgestaltung.</p>
+      <span class="tile__arrow" aria-hidden="true">&rarr;</span>
+    </a>
+    <a href="/leistungen/gartenpflege" class="tile tile--alt">
+      <h2 class="tile__title">Gartenpflege</h2>
+      <p class="tile__text">Regelmäßige Pflege erhält Funktion und Optik Ihres Gartens.</p>
+      <span class="tile__arrow" aria-hidden="true">&rarr;</span>
+    </a>
+
+    <a href="/leistungen/bewaesserung" class="tile tile--alt">
+      <h2 class="tile__title">Bewässerung</h2>
+      <p class="tile__text">Professionelle Bewässerungsanlagen. Automatisch, wassersparend, zuverlässig.</p>
+      <span class="tile__arrow" aria-hidden="true">&rarr;</span>
+    </a>
+    <a href="/leistungen/maehroboter" class="tile">
+      <h2 class="tile__title">Mähroboter</h2>
+      <p class="tile__text">Husqvarna Automower — Verkauf, Installation und Service.</p>
+      <span class="tile__arrow" aria-hidden="true">&rarr;</span>
+    </a>
+
+    <a href="/leistungen/artenschutz" class="tile">
+      <h2 class="tile__title">Artenschutz</h2>
+      <p class="tile__text">Naturnahe Gärten mit ökologischem Mehrwert.</p>
+      <span class="tile__arrow" aria-hidden="true">&rarr;</span>
+    </a>
+    <a href="#kontakt" class="tile tile--dark">
+      <h2 class="tile__title">Kontakt</h2>
+      <p class="tile__text">Projekt besprechen oder Beratung anfragen.</p>
+      <span class="tile__arrow" aria-hidden="true">&darr;</span>
+    </a>
+
+    <!-- Brunk Garten -->
+    <div class="tile tile--primary">
+      <blockquote class="tile__quote">
+        <p>Du wirst überrascht sein, wie viel Leben in einen Raum passt.</p>
+        <cite>Daniel Brunk, Gärtnermeister</cite>
+      </blockquote>
+      <ul class="tile__list">
+        <li>Fachgerechte Ausführung</li>
+        <li>Fachgerechte Pflege</li>
+        <li>Ressourcen schonen</li>
+        <li>Ökologische Bewirtschaftung</li>
+        <li>Verzicht auf chemischen Pflanzenschutz</li>
+      </ul>
     </div>
-  </section>
-
-  <!-- 2. Brunk Garten und Klimagarten -->
-  <Section title="Brunk Garten und Klimagarten" id="klimagarten">
-    <div class="two-col">
-      <div class="two-col__left">
-        <blockquote>
-          <p>Du wirst überrascht sein, wie viel Leben in einen Raum passt.</p>
-          <cite>Daniel Brunk, Gärtnermeister</cite>
-        </blockquote>
-        <p class="values-heading"><strong>Das ist uns wichtig:</strong></p>
-        <ul>
-          <li>Fachgerechte Ausführung</li>
-          <li>Fachgerechte Pflege</li>
-          <li>Ressourcen schonen</li>
-          <li>Ökologische Bewirtschaftung</li>
-          <li>Verzicht auf chemischen Pflanzenschutz</li>
-        </ul>
-      </div>
-
-      <div class="two-col__right">
-        <h3 class="klima-heading">Gärten im Klimawandel</h3>
-        <p class="klima-intro">Gärten für den Wandel wappnen.</p>
-        <div class="klima-items">
-          <div class="klima-item">
-            <h4>Begrünung</h4>
-            <p>Pflanzen haben gleich mehrere positive Eigenschaften auf unser Klima.</p>
-          </div>
-          <div class="klima-item">
-            <h4>Wassermanagement</h4>
-            <p>Die Art und Menge an Wasser die uns in Zukunft zur Verfügung steht verändert sich.</p>
-          </div>
-          <div class="klima-item">
-            <h4>Artenvielfalt</h4>
-            <p>Der Verlust an Lebensraum oder ganzer Arten hat Auswirkungen auf unser empfindliches Ökosystem.</p>
-          </div>
-        </div>
-      </div>
+    <div class="tile tile--secondary">
+      <h2 class="tile__title">Klimagarten</h2>
+      <p class="tile__text">Gärten für den Wandel wappnen.</p>
+      <dl class="tile__dl">
+        <dt>Begrünung</dt>
+        <dd>Pflanzen haben gleich mehrere positive Eigenschaften auf unser Klima.</dd>
+        <dt>Wassermanagement</dt>
+        <dd>Die Art und Menge an Wasser die uns in Zukunft zur Verfügung steht verändert sich.</dd>
+        <dt>Artenvielfalt</dt>
+        <dd>Der Verlust an Lebensraum oder ganzer Arten hat Auswirkungen auf unser empfindliches Ökosystem.</dd>
+      </dl>
     </div>
-  </Section>
 
-  <!-- 3. Kontakt -->
-  <Section title="Kontakt" id="kontakt" background="alt">
-    <div class="contact">
-      <p>
-        Sie haben ein Projekt oder eine Frage? Rufen Sie uns an oder schreiben Sie uns —
-        wir melden uns schnellstmöglich bei Ihnen.
-      </p>
-      <div class="contact__details">
-        <div>
+    <!-- Kontakt -->
+    <div class="tile tile--alt" id="kontakt">
+      <h2 class="tile__title">Schreiben Sie uns</h2>
+      <div class="tile__contact">
+        <p>
           <strong>Telefon</strong><br />
           <a href={`tel:${siteConfig.phone}`}>{siteConfig.phoneDisplay}</a>
-        </div>
-        <div>
+        </p>
+        <p>
           <strong>E-Mail</strong><br />
           <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
-        </div>
-        <div>
+        </p>
+        <p>
           <strong>Adresse</strong><br />
           {siteConfig.address.street}<br />
           {siteConfig.address.zip} {siteConfig.address.city}
-        </div>
+        </p>
       </div>
-      <div class="contact__hours">
-        <strong>Öffnungszeiten</strong>
+    </div>
+    <div class="tile tile--dark">
+      <h2 class="tile__title">Öffnungszeiten</h2>
+      <div class="tile__hours">
         {siteConfig.openingHours.map((entry) => (
-          <p>{entry.days}: {entry.hours}</p>
+          <p><strong>{entry.days}</strong><br />{entry.hours}</p>
         ))}
       </div>
     </div>
-  </Section>
+  </section>
 </Layout>
 
 <style>
   /* ============================================
-     CARDS: 2er-Reihen, halber Viewport
+     TILE GRID
      ============================================ */
-  .cards-scroll {
+  .tiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     scroll-snap-type: y proximity;
   }
 
-  .cards-track {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .scroll-card {
-    scroll-snap-align: start;
+  .tile {
     display: flex;
     flex-direction: column;
     justify-content: center;
     min-height: 50vh;
     padding: var(--space-2xl) var(--space-3xl);
     text-decoration: none;
-    color: inherit;
-    transition: background-color var(--transition-base);
+    color: var(--color-text);
+    background: var(--color-background);
     border-bottom: 1px solid var(--color-border);
+    scroll-snap-align: start;
+    transition: background-color var(--transition-base);
   }
 
-  .scroll-card:nth-child(odd) {
+  .tile:nth-child(odd) {
     border-right: 1px solid var(--color-border);
   }
 
-  .scroll-card:nth-child(1) { background: var(--color-background); }
-  .scroll-card:nth-child(2) { background: var(--color-background-alt); }
-  .scroll-card:nth-child(3) { background: var(--color-background-alt); }
-  .scroll-card:nth-child(4) { background: var(--color-background); }
-  .scroll-card:nth-child(5) { background: var(--color-background); }
-  .scroll-card:nth-child(6) {
+  /* Varianten */
+  .tile--alt {
+    background: var(--color-background-alt);
+  }
+
+  .tile--dark {
     background: var(--color-text);
+    color: var(--color-text-inverse);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .tile--primary {
+    background: var(--color-primary);
+    color: var(--color-text);
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+
+  .tile--secondary {
+    background: var(--color-secondary);
+    color: var(--color-text-inverse);
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+
+  /* Hover auf klickbare Tiles */
+  a.tile:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 8%, var(--color-background));
+    color: var(--color-text);
+  }
+
+  a.tile.tile--alt:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 10%, var(--color-background-alt));
+  }
+
+  a.tile.tile--dark:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 15%, var(--color-text));
     color: var(--color-text-inverse);
   }
 
-  .scroll-card:hover {
-    background-color: color-mix(in srgb, var(--color-primary) 8%, var(--color-background));
-  }
-
-  .scroll-card:nth-child(6):hover {
-    background-color: color-mix(in srgb, var(--color-primary) 15%, var(--color-text));
-  }
-
-  .scroll-card__title {
+  /* ============================================
+     TILE INHALTE
+     ============================================ */
+  .tile__title {
     font-family: var(--font-family-heading);
     font-size: var(--font-size-3xl);
     font-weight: 700;
-    margin-bottom: var(--space-md);
     line-height: var(--line-height-tight);
+    margin-bottom: var(--space-md);
   }
 
-  .scroll-card__text {
+  .tile__text {
     font-size: var(--font-size-md);
     opacity: 0.75;
     max-width: 40ch;
   }
 
-  .scroll-card__arrow {
+  .tile__arrow {
     margin-top: auto;
     padding-top: var(--space-xl);
     font-size: var(--font-size-2xl);
@@ -168,121 +187,109 @@ const leistungen = [
     transition: transform var(--transition-fast), opacity var(--transition-fast);
   }
 
-  .scroll-card:hover .scroll-card__arrow {
+  a.tile:hover .tile__arrow {
     transform: translateX(8px);
     opacity: 1;
     color: var(--color-primary);
   }
 
-  /* Mobile: 1 Card pro Reihe */
+  a.tile.tile--dark:hover .tile__arrow {
+    color: var(--color-primary);
+  }
+
+  /* Zitat */
+  .tile__quote {
+    font-family: var(--font-family-heading);
+    font-style: italic;
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-xl);
+  }
+
+  .tile__quote cite {
+    display: block;
+    font-size: var(--font-size-sm);
+    font-style: normal;
+    opacity: 0.7;
+    margin-top: var(--space-sm);
+  }
+
+  .tile__list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tile__list li {
+    padding: var(--space-xs) 0;
+    font-weight: 500;
+  }
+
+  .tile__list li + li {
+    margin-top: 0;
+  }
+
+  /* Definition-Liste (Klima) */
+  .tile__dl {
+    margin-top: var(--space-xl);
+  }
+
+  .tile__dl dt {
+    font-weight: 700;
+    margin-top: var(--space-md);
+  }
+
+  .tile__dl dt:first-child {
+    margin-top: 0;
+  }
+
+  .tile__dl dd {
+    margin: 0;
+    opacity: 0.8;
+    font-size: var(--font-size-sm);
+  }
+
+  /* Kontakt */
+  .tile__contact {
+    margin-top: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .tile__contact a {
+    color: var(--color-primary);
+  }
+
+  .tile__hours {
+    margin-top: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .tile__hours p {
+    margin: 0;
+  }
+
+  /* ============================================
+     MOBILE
+     ============================================ */
   @media (max-width: 639px) {
-    .cards-track {
+    .tiles {
       grid-template-columns: 1fr;
     }
 
-    .scroll-card {
+    .tile {
       min-height: 45vh;
       padding: var(--space-xl) var(--space-lg);
       border-right: none;
     }
 
-    .scroll-card:nth-child(odd) {
+    .tile:nth-child(odd) {
       border-right: none;
     }
 
-    .scroll-card__title {
+    .tile__title {
       font-size: var(--font-size-2xl);
-    }
-  }
-
-  /* ============================================
-     BRUNK GARTEN & KLIMAGARTEN
-     ============================================ */
-  .two-col {
-    display: grid;
-    gap: var(--space-3xl);
-  }
-
-  .two-col blockquote {
-    font-family: var(--font-family-heading);
-    font-style: italic;
-    font-size: var(--font-size-xl);
-    color: var(--color-text);
-    border-left: 4px solid var(--color-primary);
-    padding-left: var(--space-lg);
-    margin-bottom: var(--space-xl);
-  }
-
-  .two-col cite {
-    display: block;
-    font-size: var(--font-size-sm);
-    font-style: normal;
-    color: var(--color-primary);
-    margin-top: var(--space-sm);
-  }
-
-  .values-heading {
-    margin-bottom: var(--space-sm);
-  }
-
-  .klima-heading {
-    color: var(--color-secondary);
-    margin-bottom: var(--space-sm);
-  }
-
-  .klima-intro {
-    color: var(--color-text-light);
-    margin-bottom: var(--space-xl);
-  }
-
-  .klima-items {
-    display: grid;
-    gap: var(--space-lg);
-  }
-
-  .klima-item h4 {
-    font-family: var(--font-family-heading);
-    color: var(--color-secondary);
-    margin-bottom: var(--space-xs);
-  }
-
-  .klima-item p {
-    color: var(--color-text-light);
-    font-size: var(--font-size-sm);
-  }
-
-  /* ============================================
-     KONTAKT
-     ============================================ */
-  .contact {
-    max-width: var(--max-width-narrow);
-    margin-inline: auto;
-  }
-
-  .contact__details {
-    margin-top: var(--space-xl);
-    display: grid;
-    gap: var(--space-lg);
-  }
-
-  .contact__hours {
-    margin-top: var(--space-xl);
-  }
-
-  .contact__hours p {
-    margin-top: var(--space-xs);
-  }
-
-  /* ============================================
-     RESPONSIVE
-     ============================================ */
-  @media (min-width: 768px) {
-    .two-col {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .contact__details {
-      grid-template-columns: repeat(3, 1fr);
     }
   }
 </style>
