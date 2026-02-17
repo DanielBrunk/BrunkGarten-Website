@@ -1,0 +1,161 @@
+---
+import Layout from '../components/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import Card from '../components/Card.astro';
+import { siteConfig } from '../config';
+---
+
+<Layout>
+  <Hero
+    tagline="Meisterbetrieb aus Musterstadt"
+    title="Wir geben Ihren Räumen <em>neues Leben</em>"
+    subtitle="Professionelle Malerarbeiten seit über 20 Jahren. Von der Farbberatung bis zum letzten Pinselstrich — sauber, termingerecht und mit Leidenschaft."
+    ctaText="Jetzt Angebot anfragen"
+    ctaHref="#kontakt"
+    ctaSecondaryText="Leistungen entdecken"
+    ctaSecondaryHref="#leistungen"
+    stats={[
+      { value: '20+', label: 'Jahre Erfahrung' },
+      { value: '500+', label: 'Projekte' },
+      { value: '100%', label: 'Meisterqualität' },
+    ]}
+  />
+
+  <!-- Leistungen -->
+  <Section title="Unsere Leistungen" id="leistungen" background="alt">
+    <div class="grid">
+      <Card title="Innenraumgestaltung" icon="🎨">
+        <p>Von der Farbberatung bis zur Umsetzung — wir gestalten Ihre Räume nach Ihren Wünschen. Tapezieren, Streichen, Dekorationstechniken.</p>
+      </Card>
+      <Card title="Fassadenarbeiten" icon="🏠">
+        <p>Professionelle Fassadenanstriche und -sanierungen. Wetterfest, langlebig und fachgerecht ausgeführt.</p>
+      </Card>
+      <Card title="Lackierarbeiten" icon="✨">
+        <p>Türen, Fenster, Heizkörper — wir lackieren alle Oberflächen sauber und präzise. Auch Speziallacke und Holzschutz.</p>
+      </Card>
+      <Card title="Bodenbeläge" icon="🔲">
+        <p>Verlegung von Laminat, Vinyl und Designbelägen. Inklusive Untergrundvorbereitung und sauberer Abschluss.</p>
+      </Card>
+      <Card title="Trockenbau" icon="🔨">
+        <p>Wände einziehen, Decken abhängen, Dachausbau — wir übernehmen alle Trockenbauarbeiten aus einer Hand.</p>
+      </Card>
+      <Card title="Wärmedämmung" icon="🌡️">
+        <p>WDVS-Systeme fachgerecht montiert. Energiekosten senken und gleichzeitig die Optik aufwerten.</p>
+      </Card>
+    </div>
+  </Section>
+
+  <!-- Über uns -->
+  <Section title="Über uns" id="ueber-uns">
+    <div class="about">
+      <div class="about__text">
+        <p>
+          <strong>{siteConfig.companyName}</strong> steht seit über 20 Jahren für erstklassige
+          Malerarbeiten in {siteConfig.address.city} und Umgebung. Als inhabergeführter
+          Meisterbetrieb legen wir besonderen Wert auf handwerkliche Qualität, saubere
+          Ausführung und persönliche Beratung.
+        </p>
+        <p>
+          Unser Team aus erfahrenen Malermeistern und Gesellen begleitet Sie von der ersten
+          Idee bis zum fertigen Ergebnis. Ob private Renovierung oder gewerbliches Projekt —
+          wir sind Ihr zuverlässiger Partner.
+        </p>
+        <ul>
+          <li>Meisterbetrieb mit über 20 Jahren Erfahrung</li>
+          <li>Persönliche Beratung vor Ort</li>
+          <li>Termintreue und saubere Arbeit</li>
+          <li>Faire und transparente Preise</li>
+        </ul>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Kontakt -->
+  <Section title="Kontakt" id="kontakt" background="alt">
+    <div class="contact">
+      <div class="contact__info">
+        <p>
+          Sie haben ein Projekt oder eine Frage? Rufen Sie uns an oder schreiben Sie uns —
+          wir melden uns schnellstmöglich bei Ihnen.
+        </p>
+        <div class="contact__details">
+          <p>
+            <strong>Telefon</strong><br />
+            <a href={`tel:${siteConfig.phone}`}>{siteConfig.phoneDisplay}</a>
+          </p>
+          <p>
+            <strong>E-Mail</strong><br />
+            <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+          </p>
+          <p>
+            <strong>Adresse</strong><br />
+            {siteConfig.address.street}<br />
+            {siteConfig.address.zip} {siteConfig.address.city}
+          </p>
+        </div>
+        <div class="contact__hours">
+          <strong>Öffnungszeiten</strong>
+          {siteConfig.openingHours.map((entry) => (
+            <p>{entry.days}: {entry.hours}</p>
+          ))}
+        </div>
+      </div>
+    </div>
+  </Section>
+</Layout>
+
+<style>
+  .grid {
+    display: grid;
+    gap: var(--space-xl);
+  }
+
+  .about__text {
+    max-width: var(--max-width-narrow);
+    margin-inline: auto;
+  }
+
+  .about__text p + p {
+    margin-top: var(--space-md);
+  }
+
+  .about__text ul {
+    margin-top: var(--space-lg);
+  }
+
+  .contact {
+    max-width: var(--max-width-narrow);
+    margin-inline: auto;
+  }
+
+  .contact__details {
+    margin-top: var(--space-xl);
+    display: grid;
+    gap: var(--space-lg);
+  }
+
+  .contact__hours {
+    margin-top: var(--space-xl);
+  }
+
+  .contact__hours p {
+    margin-top: var(--space-xs);
+  }
+
+  @media (min-width: 768px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact__details {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

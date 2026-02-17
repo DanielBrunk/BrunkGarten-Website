@@ -1,0 +1,224 @@
+---
+import { siteConfig } from '../config';
+
+interface Props {
+  tagline?: string;
+  title: string;
+  subtitle?: string;
+  ctaText?: string;
+  ctaHref?: string;
+  ctaSecondaryText?: string;
+  ctaSecondaryHref?: string;
+  backgroundImage?: string;
+  stats?: { value: string; label: string }[];
+}
+
+const {
+  tagline,
+  title,
+  subtitle,
+  ctaText,
+  ctaHref = '#kontakt',
+  ctaSecondaryText,
+  ctaSecondaryHref,
+  backgroundImage,
+  stats,
+} = Astro.props;
+---
+
+<section class="hero">
+  <div class="hero__grid container">
+    <div class="hero__text">
+      {tagline && <span class="hero__tagline">{tagline}</span>}
+      <h1 set:html={title} />
+      {subtitle && <p class="hero__subtitle">{subtitle}</p>}
+      {(ctaText || ctaSecondaryText) && (
+        <div class="hero__actions">
+          {ctaText && <a href={ctaHref} class="btn btn--large">{ctaText}</a>}
+          {ctaSecondaryText && ctaSecondaryHref && (
+            <a href={ctaSecondaryHref} class="btn btn--secondary btn--large">{ctaSecondaryText}</a>
+          )}
+        </div>
+      )}
+      {stats && stats.length > 0 && (
+        <div class="hero__stats">
+          {stats.map((stat) => (
+            <div class="hero__stat">
+              <span class="hero__stat-value">{stat.value}</span>
+              <span class="hero__stat-label">{stat.label}</span>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+    <div class="hero__visual">
+      {backgroundImage ? (
+        <img src={backgroundImage} alt={`${siteConfig.companyName} – Impression`} loading="eager" width="720" height="600" />
+      ) : (
+        <div class="hero__placeholder" aria-hidden="true">
+          <div class="hero__placeholder-inner">
+            <span>Bild</span>
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+  <div class="hero__bg" aria-hidden="true"></div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: var(--space-3xl) 0 var(--space-4xl);
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 100%, color-mix(in srgb, var(--color-primary) 12%, transparent) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 80% at 80% 0%, color-mix(in srgb, var(--color-secondary) 8%, transparent) 0%, transparent 70%),
+      var(--color-background);
+  }
+
+  .hero__grid {
+    display: grid;
+    gap: var(--space-2xl);
+    align-items: center;
+  }
+
+  /* Text */
+  .hero__tagline {
+    display: inline-block;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero h1 {
+    font-size: var(--font-size-3xl);
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero h1 :global(em) {
+    font-style: normal;
+    color: var(--color-primary);
+  }
+
+  .hero__subtitle {
+    font-size: var(--font-size-md);
+    color: var(--color-text-light);
+    max-width: 50ch;
+    margin-bottom: var(--space-xl);
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    margin-bottom: var(--space-2xl);
+  }
+
+  /* Stats */
+  .hero__stats {
+    display: flex;
+    gap: var(--space-2xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .hero__stat {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero__stat-value {
+    font-size: var(--font-size-2xl);
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1;
+  }
+
+  .hero__stat-label {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+    margin-top: var(--space-xs);
+  }
+
+  /* Visual */
+  .hero__visual {
+    position: relative;
+  }
+
+  .hero__visual img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+    aspect-ratio: 6/5;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .hero__placeholder {
+    aspect-ratio: 6/5;
+    border-radius: var(--radius-lg);
+    background:
+      linear-gradient(135deg, var(--color-primary), var(--color-primary-dark) 60%, var(--color-secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .hero__placeholder-inner {
+    width: 60%;
+    aspect-ratio: 4/3;
+    border: 2px dashed rgba(255, 255, 255, 0.35);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+  }
+
+  /* Responsive */
+  @media (min-width: 768px) {
+    .hero {
+      padding: var(--space-4xl) 0;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3xl);
+    }
+
+    .hero h1 {
+      font-size: var(--font-size-4xl);
+    }
+
+    .hero__subtitle {
+      font-size: var(--font-size-lg);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero__grid {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+  }
+</style>

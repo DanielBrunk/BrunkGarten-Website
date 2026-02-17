@@ -1,0 +1,145 @@
+---
+import { siteConfig } from '../config';
+---
+
+<header class="header">
+  <div class="container header__inner">
+    <a href="/" class="header__logo" aria-label={`${siteConfig.companyName} – Startseite`}>
+      {siteConfig.companyName}
+    </a>
+
+    <!-- Hamburger Toggle (pure CSS) -->
+    <input type="checkbox" id="nav-toggle" class="header__toggle sr-only" aria-label="Navigation öffnen" />
+    <label for="nav-toggle" class="header__hamburger" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <nav class="header__nav" aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="/#leistungen">Leistungen</a></li>
+        <li><a href="/#ueber-uns">Über uns</a></li>
+        <li><a href="/#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--color-background);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: var(--space-md);
+  }
+
+  .header__logo {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .header__logo:hover {
+    color: var(--color-primary-dark);
+  }
+
+  /* Hamburger */
+  .header__hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: var(--space-sm);
+    z-index: 101;
+  }
+
+  .header__hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-text);
+    transition: transform var(--transition-base), opacity var(--transition-base);
+  }
+
+  /* Hamburger Animation */
+  .header__toggle:checked ~ .header__hamburger span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .header__toggle:checked ~ .header__hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .header__toggle:checked ~ .header__hamburger span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Nav */
+  .header__nav {
+    position: fixed;
+    inset: 0;
+    background-color: var(--color-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: transform var(--transition-base);
+  }
+
+  .header__toggle:checked ~ .header__nav {
+    transform: translateX(0);
+  }
+
+  .header__nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  .header__nav a {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .header__nav a:hover {
+    color: var(--color-primary);
+  }
+
+  /* Desktop */
+  @media (min-width: 768px) {
+    .header__hamburger {
+      display: none;
+    }
+
+    .header__nav {
+      position: static;
+      transform: none;
+      background: none;
+    }
+
+    .header__nav ul {
+      flex-direction: row;
+      gap: var(--space-xl);
+    }
+
+    .header__nav a {
+      font-size: var(--font-size-base);
+    }
+  }
+</style>
