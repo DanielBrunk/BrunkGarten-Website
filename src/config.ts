@@ -1,51 +1,50 @@
 export const siteConfig = {
   // Firmen-Daten
-  companyName: 'Maler Mustermann',
-  companySlogan: 'Ihr Experte für Farbe und Gestaltung',
-  owner: 'Max Mustermann',
+  companyName: 'Brunk Garten',
+  companySlogan: 'Garten- und Landschaftsbau',
+  owner: 'Daniel Brunk',
 
-  // Kontakt
-  phone: '+49 123 456789',
-  phoneDisplay: '0123 456789',
-  email: 'info@maler-mustermann.de',
+  // Kontakt (TODO: echte Daten eintragen)
+  phone: '+49 XXX XXXXXXX',
+  phoneDisplay: '0XXX XXXXXXX',
+  email: 'info@brunk-garten.de',
   address: {
-    street: 'Farbstraße 12',
-    zip: '12345',
-    city: 'Musterstadt',
+    street: 'Musterstraße 1',
+    zip: '78315',
+    city: 'Radolfzell',
   },
 
   // Öffnungszeiten
   openingHours: [
-    { days: 'Montag – Freitag', hours: '08:00 – 17:00' },
+    { days: 'Montag – Freitag', hours: '07:00 – 17:00' },
     { days: 'Samstag', hours: 'nach Vereinbarung' },
     { days: 'Sonntag', hours: 'geschlossen' },
   ],
 
   // Social Media
   social: {
-    instagram: 'https://instagram.com/malermustermann',
-    facebook: 'https://facebook.com/malermustermann',
-    // google: 'https://g.page/malermustermann',
+    // instagram: 'https://instagram.com/brunkgarten',
+    // facebook: 'https://facebook.com/brunkgarten',
   },
 
   // URLs
-  siteUrl: 'https://www.maler-mustermann.de',
+  siteUrl: 'https://brunk-garten.de',
 
   // Analytics (Umami)
   umamiWebsiteId: '',
   umamiScriptUrl: '',
 
   // SEO Defaults
-  defaultTitle: 'Maler Mustermann – Ihr Malermeisterbetrieb in Musterstadt',
+  defaultTitle: 'Brunk Garten – Garten- und Landschaftsbau am Bodensee',
   defaultDescription:
-    'Professionelle Malerarbeiten in Musterstadt und Umgebung. Innenraumgestaltung, Fassadenarbeiten, Tapezierarbeiten und mehr.',
+    'Professioneller Garten- und Landschaftsbau in Radolfzell und am Bodensee. Gartengestaltung, Pflasterarbeiten, Bepflanzung und mehr.',
   defaultImage: '/images/og-image.jpg',
 
-  // Rechtliches
+  // Rechtliches (TODO: echte Daten eintragen)
   legal: {
-    taxId: 'DE123456789',
-    tradeRegister: 'HRB 12345, Amtsgericht Musterstadt',
-    supervisoryAuthority: 'Handwerkskammer Musterstadt',
+    taxId: '',
+    tradeRegister: '',
+    supervisoryAuthority: 'Handwerkskammer Konstanz',
   },
 };
 

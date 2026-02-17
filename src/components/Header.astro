@@ -5,7 +5,7 @@ import { siteConfig } from '../config';
 <header class="header">
   <div class="container header__inner">
     <a href="/" class="header__logo" aria-label={`${siteConfig.companyName} – Startseite`}>
-      {siteConfig.companyName}
+      <img src="/images/logo-horizontal.jpg" alt={siteConfig.companyName} width="180" height="60" />
     </a>
 
     <!-- Hamburger Toggle (pure CSS) -->
@@ -43,14 +43,15 @@ import { siteConfig } from '../config';
   }
 
   .header__logo {
-    font-size: var(--font-size-lg);
-    font-weight: 700;
-    color: var(--color-primary);
+    display: flex;
+    align-items: center;
     text-decoration: none;
   }
 
-  .header__logo:hover {
-    color: var(--color-primary-dark);
+  .header__logo img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
   }
 
   /* Hamburger */

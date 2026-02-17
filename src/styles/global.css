@@ -2,11 +2,27 @@
    FONT FACE
    ============================================ */
 @font-face {
-  font-family: 'Inter';
+  font-family: 'Lora';
   font-style: normal;
-  font-weight: 100 900;
+  font-weight: 400 700;
   font-display: swap;
-  src: url('/fonts/InterVariable.woff2') format('woff2-variations');
+  src: url('/fonts/Lora-Variable.woff2') format('woff2-variations');
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/Lora-Variable-Italic.woff2') format('woff2-variations');
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/Nunito-Variable.woff2') format('woff2-variations');
 }
 
 /* ============================================
@@ -14,41 +30,42 @@
    Neuer Kunde = nur diese Variablen ändern
    ============================================ */
 :root {
-  /* Farben */
-  --color-primary: #2B5EA7;
-  --color-primary-dark: #1E4478;
-  --color-secondary: #E8A430;
-  --color-secondary-dark: #C98A1F;
-  --color-accent: #3B8C6E;
+  /* Farben – Brunk Garten CI */
+  --color-primary: #99C33B;
+  --color-primary-dark: #7DA52E;
+  --color-secondary: #1D6F6F;
+  --color-secondary-dark: #155A5A;
+  --color-accent: #1D6F6F;
   --color-background: #FFFFFF;
-  --color-background-alt: #F5F5F0;
-  --color-text: #1A1A1A;
-  --color-text-light: #555555;
-  --color-text-inverse: #FFFFFF;
-  --color-border: #E0E0E0;
+  --color-background-alt: #F7F4EF;
+  --color-text: #2D4A3E;
+  --color-text-light: #5A7A6A;
+  --color-text-inverse: #F7F4EF;
+  --color-border: #D4CFC4;
 
-  /* Typografie */
-  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  /* Typografie – Lora (Headlines) + Nunito (Body) */
+  --font-family: 'Nunito', -apple-system, system-ui, sans-serif;
+  --font-family-heading: 'Lora', Georgia, serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
   --font-size-md: 1.125rem;
   --font-size-lg: 1.25rem;
   --font-size-xl: 1.5rem;
-  --font-size-2xl: 2rem;
-  --font-size-3xl: 2.5rem;
+  --font-size-2xl: 2.25rem;
+  --font-size-3xl: 3rem;
   --font-size-4xl: 3.5rem;
   --line-height-tight: 1.2;
   --line-height-base: 1.6;
 
-  /* Spacing */
+  /* Spacing – Styleguide */
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
   --space-lg: 1.5rem;
-  --space-xl: 2rem;
-  --space-2xl: 3rem;
-  --space-3xl: 4rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 5rem;
   --space-4xl: 6rem;
   --space-section: 5rem;
 
@@ -56,16 +73,16 @@
   --max-width: 1200px;
   --max-width-narrow: 800px;
 
-  /* Border Radius */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 16px;
+  /* Border Radius – organisch & rund */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
   --radius-full: 9999px;
 
   /* Schatten */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.1);
 
   /* Transitions */
   --transition-fast: 150ms ease;
@@ -110,7 +127,8 @@ svg {
 /* ============================================
    TYPOGRAPHY
    ============================================ */
-h1, h2, h3 {
+h1, h2, h3, h4 {
+  font-family: var(--font-family-heading);
   line-height: var(--line-height-tight);
   font-weight: 700;
   color: var(--color-text);
@@ -171,15 +189,15 @@ button,
   align-items: center;
   justify-content: center;
   gap: var(--space-sm);
-  padding: var(--space-sm) var(--space-lg);
+  padding: 14px 28px;
   font-family: var(--font-family);
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-sm);
   font-weight: 600;
   line-height: 1;
-  color: var(--color-text-inverse);
+  color: var(--color-text);
   background-color: var(--color-primary);
   border: 2px solid transparent;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-full);
   cursor: pointer;
   transition: background-color var(--transition-fast), transform var(--transition-fast);
   text-decoration: none;
@@ -188,7 +206,7 @@ button,
 button:hover,
 .btn:hover {
   background-color: var(--color-primary-dark);
-  color: var(--color-text-inverse);
+  color: var(--color-text);
 }
 
 button:focus-visible,
@@ -203,19 +221,30 @@ button:active,
 }
 
 .btn--secondary {
-  background-color: transparent;
-  color: var(--color-primary);
-  border-color: var(--color-primary);
+  background-color: var(--color-secondary);
+  color: var(--color-text-inverse);
+  border-color: transparent;
 }
 
 .btn--secondary:hover {
-  background-color: var(--color-primary);
+  background-color: var(--color-secondary-dark);
   color: var(--color-text-inverse);
 }
 
+.btn--outline {
+  background-color: transparent;
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.btn--outline:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
 .btn--large {
-  padding: var(--space-md) var(--space-xl);
-  font-size: var(--font-size-md);
+  padding: 16px 32px;
+  font-size: var(--font-size-base);
 }
 
 /* ============================================
@@ -240,7 +269,7 @@ textarea:focus,
 select:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(43, 94, 167, 0.15);
+  box-shadow: 0 0 0 3px rgba(153, 195, 59, 0.2);
 }
 
 textarea {
