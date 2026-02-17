@@ -33,11 +33,30 @@ import { siteConfig } from '../config';
       <p class="tile__text">Naturnahe Gärten mit ökologischem Mehrwert.</p>
       <span class="tile__arrow" aria-hidden="true">&rarr;</span>
     </a>
-    <div class="tile tile--dark tile--legal">
+    <div class="tile tile--dark tile--info" id="kontakt">
+      <p class="tile__company">{siteConfig.companyName}</p>
+      <address class="tile__address">
+        {siteConfig.address.street}<br />
+        {siteConfig.address.zip} {siteConfig.address.city}<br />
+        <a href={`tel:${siteConfig.phone}`}>{siteConfig.phoneDisplay}</a><br />
+        <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+      </address>
+
+      <div class="tile__hours">
+        <p class="tile__label">Öffnungszeiten</p>
+        {siteConfig.openingHours.map((entry) => (
+          <p>{entry.days}: {entry.hours}</p>
+        ))}
+      </div>
+
       <nav class="tile__legal" aria-label="Rechtliches">
-        <a href="/impressum">Impressum</a>
-        <a href="/datenschutz">Datenschutz</a>
+        <p class="tile__label">Rechtliches</p>
+        <div class="tile__legal-links">
+          <a href="/impressum">Impressum</a>
+          <a href="/datenschutz">Datenschutz</a>
+        </div>
       </nav>
+
       <p class="tile__copyright">&copy; {new Date().getFullYear()} {siteConfig.companyName}</p>
     </div>
 
@@ -66,34 +85,6 @@ import { siteConfig } from '../config';
         <dt>Artenvielfalt</dt>
         <dd>Der Verlust an Lebensraum oder ganzer Arten hat Auswirkungen auf unser empfindliches Ökosystem.</dd>
       </dl>
-    </div>
-
-    <!-- Kontakt -->
-    <div class="tile tile--alt" id="kontakt">
-      <h2 class="tile__title">Schreiben Sie uns</h2>
-      <div class="tile__contact">
-        <p>
-          <strong>Telefon</strong><br />
-          <a href={`tel:${siteConfig.phone}`}>{siteConfig.phoneDisplay}</a>
-        </p>
-        <p>
-          <strong>E-Mail</strong><br />
-          <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
-        </p>
-        <p>
-          <strong>Adresse</strong><br />
-          {siteConfig.address.street}<br />
-          {siteConfig.address.zip} {siteConfig.address.city}
-        </p>
-      </div>
-    </div>
-    <div class="tile tile--dark">
-      <h2 class="tile__title">Öffnungszeiten</h2>
-      <div class="tile__hours">
-        {siteConfig.openingHours.map((entry) => (
-          <p><strong>{entry.days}</strong><br />{entry.hours}</p>
-        ))}
-      </div>
     </div>
   </section>
 </Layout>
@@ -251,57 +242,80 @@ import { siteConfig } from '../config';
     font-size: var(--font-size-sm);
   }
 
-  /* Rechtliches */
-  .tile--legal {
-    justify-content: flex-end;
+  /* Info-Kachel */
+  .tile--info {
+    justify-content: flex-start;
+    gap: 0;
+    font-size: var(--font-size-sm);
+  }
+
+  .tile__company {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+  }
+
+  .tile__address {
+    font-style: normal;
+    line-height: 1.8;
+  }
+
+  .tile__address a {
+    color: var(--color-text-inverse);
+    opacity: 0.8;
+    text-decoration: none;
+  }
+
+  .tile__address a:hover {
+    opacity: 1;
+    color: var(--color-primary);
+  }
+
+  .tile__label {
+    font-weight: 600;
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.5;
+    margin-bottom: var(--space-xs);
+  }
+
+  .tile__hours {
+    margin-top: var(--space-xl);
+  }
+
+  .tile__hours p {
+    margin: 0;
+    line-height: 1.6;
   }
 
   .tile__legal {
-    display: flex;
-    gap: var(--space-xl);
+    margin-top: var(--space-xl);
   }
 
-  .tile__legal a {
+  .tile__legal-links {
+    display: flex;
+    gap: var(--space-lg);
+  }
+
+  .tile__legal-links a {
     color: var(--color-text-inverse);
     opacity: 0.7;
-    font-size: var(--font-size-sm);
-    font-weight: 500;
     text-decoration: none;
     transition: opacity var(--transition-fast);
   }
 
-  .tile__legal a:hover {
+  .tile__legal-links a:hover {
     opacity: 1;
     color: var(--color-text-inverse);
   }
 
   .tile__copyright {
-    margin-top: var(--space-md);
+    margin-top: auto;
+    padding-top: var(--space-lg);
     font-size: var(--font-size-xs);
-    opacity: 0.4;
-  }
-
-  /* Kontakt */
-  .tile__contact {
-    margin-top: var(--space-lg);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-  }
-
-  .tile__contact a {
-    color: var(--color-primary);
-  }
-
-  .tile__hours {
-    margin-top: var(--space-lg);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-  }
-
-  .tile__hours p {
-    margin: 0;
+    opacity: 0.3;
   }
 
   /* ============================================

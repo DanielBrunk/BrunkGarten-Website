@@ -1,7 +1,6 @@
 ---
 import SEO from './SEO.astro';
 import Header from './Header.astro';
-import Footer from './Footer.astro';
 import { siteConfig } from '../config';
 import '../styles/global.css';
 
@@ -39,6 +38,5 @@ const { title, description, image, noindex } = Astro.props;
     <main>
       <slot />
     </main>
-    <Footer />
   </body>
 </html>
