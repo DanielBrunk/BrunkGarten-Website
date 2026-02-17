@@ -100,26 +100,15 @@ const leistungen = [
 
 <style>
   /* ============================================
-     HORIZONTAL SCROLL CARDS
+     CARDS: 2er-Reihen, halber Viewport
      ============================================ */
   .cards-scroll {
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-
-  .cards-scroll::-webkit-scrollbar {
-    display: none;
+    scroll-snap-type: y proximity;
   }
 
   .cards-track {
     display: grid;
-    grid-template-columns: repeat(3, 100vw);
-    grid-template-rows: 50vh 50vh;
-    grid-auto-flow: column;
-    min-height: 100vh;
+    grid-template-columns: 1fr 1fr;
   }
 
   .scroll-card {
@@ -127,17 +116,22 @@ const leistungen = [
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-height: 50vh;
     padding: var(--space-2xl) var(--space-3xl);
     text-decoration: none;
     color: inherit;
     transition: background-color var(--transition-base);
-    border: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .scroll-card:nth-child(odd) {
+    border-right: 1px solid var(--color-border);
   }
 
   .scroll-card:nth-child(1) { background: var(--color-background); }
   .scroll-card:nth-child(2) { background: var(--color-background-alt); }
-  .scroll-card:nth-child(3) { background: var(--color-background); }
-  .scroll-card:nth-child(4) { background: var(--color-background-alt); }
+  .scroll-card:nth-child(3) { background: var(--color-background-alt); }
+  .scroll-card:nth-child(4) { background: var(--color-background); }
   .scroll-card:nth-child(5) { background: var(--color-background); }
   .scroll-card:nth-child(6) {
     background: var(--color-text);
@@ -180,24 +174,20 @@ const leistungen = [
     color: var(--color-primary);
   }
 
-  /* Mobile: jede Card volle Breite, vertikal statt horizontal */
-  @media (max-width: 767px) {
-    .cards-scroll {
-      overflow-x: visible;
-      scroll-snap-type: none;
-    }
-
+  /* Mobile: 1 Card pro Reihe */
+  @media (max-width: 639px) {
     .cards-track {
-      display: grid;
       grid-template-columns: 1fr;
-      grid-template-rows: auto;
-      grid-auto-flow: row;
-      min-height: auto;
     }
 
     .scroll-card {
-      min-height: 40vh;
+      min-height: 45vh;
       padding: var(--space-xl) var(--space-lg);
+      border-right: none;
+    }
+
+    .scroll-card:nth-child(odd) {
+      border-right: none;
     }
 
     .scroll-card__title {
