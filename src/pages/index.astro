@@ -1,6 +1,5 @@
 ---
 import Layout from '../components/Layout.astro';
-import Hero from '../components/Hero.astro';
 import Section from '../components/Section.astro';
 import Card from '../components/Card.astro';
 import { siteConfig } from '../config';
@@ -20,18 +19,8 @@ const weitereLeistungen = [
 ---
 
 <Layout>
-  <Hero
-    tagline="GaLaBau – Meisterbetrieb"
-    title="Natürlich <em>Grün</em>"
-    subtitle="Mein Ziel war es schon immer, Mensch und Natur zusammen zu bringen. Wir müssen uns nicht zwischen Lebensraum für Mensch und Lebensraum für Natur entscheiden. Wir können sie kombinieren."
-    ctaText="Kontakt aufnehmen"
-    ctaHref="#kontakt"
-    ctaSecondaryText="Leistungen entdecken"
-    ctaSecondaryHref="#leistungen"
-  />
-
   <!-- 1. Leistungen -->
-  <Section title="Unsere Leistungen" id="leistungen" background="alt">
+  <Section title="Unsere Leistungen" id="leistungen">
     <div class="grid">
       <Card title="Artenschutz und Habitatpflege" href="/leistungen/artenschutz">
         <p>Als Landschaftsgärtner sind wir stark mit der Natur verbunden und setzen uns für den Schutz der Arten und den Erhalt bzw. die Förderung von Lebensräumen ein.</p>
