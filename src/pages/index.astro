@@ -1,34 +1,31 @@
 ---
 import Layout from '../components/Layout.astro';
 import Section from '../components/Section.astro';
-import Card from '../components/Card.astro';
 import { siteConfig } from '../config';
+
+const leistungen = [
+  { title: 'GaLaBau', href: '/leistungen/galabau', text: 'Garten- und Landschaftsbau vom Meisterbetrieb. Planung, Neuanlage und Umgestaltung.' },
+  { title: 'Gartenpflege', href: '/leistungen/gartenpflege', text: 'Regelmäßige Pflege erhält Funktion und Optik Ihres Gartens.' },
+  { title: 'Bewässerung', href: '/leistungen/bewaesserung', text: 'Professionelle Bewässerungsanlagen. Automatisch, wassersparend, zuverlässig.' },
+  { title: 'Mähroboter', href: '/leistungen/maehroboter', text: 'Husqvarna Automower — Verkauf, Installation und Service.' },
+  { title: 'Artenschutz', href: '/leistungen/artenschutz', text: 'Naturnahe Gärten mit ökologischem Mehrwert.' },
+  { title: 'Kontakt', href: '#kontakt', text: 'Projekt besprechen oder Beratung anfragen.' },
+];
 ---
 
 <Layout>
-  <!-- 1. Leistungen -->
-  <Section id="leistungen">
-    <div class="grid">
-      <Card title="GaLaBau" href="/leistungen/galabau">
-        <p>Garten- und Landschaftsbau vom Meisterbetrieb. Planung, Neuanlage und Umgestaltung — alles aus einer Hand.</p>
-      </Card>
-      <Card title="Gartenpflege" href="/leistungen/gartenpflege">
-        <p>Ein Garten ist eine planvolle, meist künstlerische Anlage. Regelmäßige Pflege erhält Funktion und Optik.</p>
-      </Card>
-      <Card title="Bewässerung" href="/leistungen/bewaesserung">
-        <p>Professionelle Bewässerungsanlagen mit mehr als 10 Jahren Erfahrung. Automatisch, wassersparend, zuverlässig.</p>
-      </Card>
-      <Card title="Mähroboter" href="/leistungen/maehroboter">
-        <p>Husqvarna Automower — Verkauf, Installation und Service vom zertifizierten Fachbetrieb.</p>
-      </Card>
-      <Card title="Artenschutz" href="/leistungen/artenschutz">
-        <p>Schutz der Arten und Förderung von Lebensräumen. Naturnahe Gärten mit ökologischem Mehrwert.</p>
-      </Card>
-      <Card title="Kontakt" href="#kontakt">
-        <p>Projekt besprechen, Beratung anfragen oder einfach Hallo sagen.</p>
-      </Card>
+  <!-- 1. Leistungen: Horizontal Scroll -->
+  <section class="cards-scroll" id="leistungen">
+    <div class="cards-track">
+      {leistungen.map((l) => (
+        <a href={l.href} class="scroll-card">
+          <h2 class="scroll-card__title">{l.title}</h2>
+          <p class="scroll-card__text">{l.text}</p>
+          <span class="scroll-card__arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      ))}
     </div>
-  </Section>
+  </section>
 
   <!-- 2. Brunk Garten und Klimagarten -->
   <Section title="Brunk Garten und Klimagarten" id="klimagarten">
@@ -102,13 +99,115 @@ import { siteConfig } from '../config';
 </Layout>
 
 <style>
-  /* Grid */
-  .grid {
-    display: grid;
-    gap: var(--space-xl);
+  /* ============================================
+     HORIZONTAL SCROLL CARDS
+     ============================================ */
+  .cards-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
 
-  /* Zwei-Spalten: Philosophie + Klima */
+  .cards-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cards-track {
+    display: grid;
+    grid-template-columns: repeat(3, 100vw);
+    grid-template-rows: 50vh 50vh;
+    grid-auto-flow: column;
+    min-height: 100vh;
+  }
+
+  .scroll-card {
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--space-2xl) var(--space-3xl);
+    text-decoration: none;
+    color: inherit;
+    transition: background-color var(--transition-base);
+    border: 1px solid var(--color-border);
+  }
+
+  .scroll-card:nth-child(1) { background: var(--color-background); }
+  .scroll-card:nth-child(2) { background: var(--color-background-alt); }
+  .scroll-card:nth-child(3) { background: var(--color-background); }
+  .scroll-card:nth-child(4) { background: var(--color-background-alt); }
+  .scroll-card:nth-child(5) { background: var(--color-background); }
+  .scroll-card:nth-child(6) {
+    background: var(--color-text);
+    color: var(--color-text-inverse);
+  }
+
+  .scroll-card:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 8%, var(--color-background));
+  }
+
+  .scroll-card:nth-child(6):hover {
+    background-color: color-mix(in srgb, var(--color-primary) 15%, var(--color-text));
+  }
+
+  .scroll-card__title {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+    line-height: var(--line-height-tight);
+  }
+
+  .scroll-card__text {
+    font-size: var(--font-size-md);
+    opacity: 0.75;
+    max-width: 40ch;
+  }
+
+  .scroll-card__arrow {
+    margin-top: auto;
+    padding-top: var(--space-xl);
+    font-size: var(--font-size-2xl);
+    opacity: 0.4;
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
+  }
+
+  .scroll-card:hover .scroll-card__arrow {
+    transform: translateX(8px);
+    opacity: 1;
+    color: var(--color-primary);
+  }
+
+  /* Mobile: jede Card volle Breite, vertikal statt horizontal */
+  @media (max-width: 767px) {
+    .cards-scroll {
+      overflow-x: visible;
+      scroll-snap-type: none;
+    }
+
+    .cards-track {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      grid-auto-flow: row;
+      min-height: auto;
+    }
+
+    .scroll-card {
+      min-height: 40vh;
+      padding: var(--space-xl) var(--space-lg);
+    }
+
+    .scroll-card__title {
+      font-size: var(--font-size-2xl);
+    }
+  }
+
+  /* ============================================
+     BRUNK GARTEN & KLIMAGARTEN
+     ============================================ */
   .two-col {
     display: grid;
     gap: var(--space-3xl);
@@ -162,7 +261,9 @@ import { siteConfig } from '../config';
     font-size: var(--font-size-sm);
   }
 
-  /* Kontakt */
+  /* ============================================
+     KONTAKT
+     ============================================ */
   .contact {
     max-width: var(--max-width-narrow);
     margin-inline: auto;
@@ -182,23 +283,15 @@ import { siteConfig } from '../config';
     margin-top: var(--space-xs);
   }
 
-  /* Responsive */
-  @media (min-width: 640px) {
-    .grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
+  /* ============================================
+     RESPONSIVE
+     ============================================ */
+  @media (min-width: 768px) {
     .two-col {
       grid-template-columns: 1fr 1fr;
     }
 
     .contact__details {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .grid {
       grid-template-columns: repeat(3, 1fr);
     }
   }
