@@ -4,75 +4,104 @@ import Hero from '../components/Hero.astro';
 import Section from '../components/Section.astro';
 import Card from '../components/Card.astro';
 import { siteConfig } from '../config';
+
+const weitereLeistungen = [
+  'Bodendecker', 'Gartenwege', 'Beratung', 'Baumpflege', 'Holzterrassen',
+  'Teichbau', 'Stahlband', 'Hochbeete', 'Nährstoffanalyse', 'Kräuterspiralen',
+  'Pflanzgefäße', 'Blumenwiesen', 'Rollrasen', 'Palisaden', 'Maulwurfsperre',
+  'Rasensaat', 'Formhecken', 'Gehölze', 'Sichtschutz', 'Pergolen',
+  'Pflanzenschutz', 'Pflanzkonzepte', 'Corten-Stahl', 'Hausbäume', 'Grünpflege',
+  'Baggerarbeiten', 'Stufenanlagen', 'Planung', 'Naturstein', 'Klinkerpflaster',
+  'Dachbegrünung', 'Obstgehölze', 'Zäune', 'Frühjahrsblüher', 'Wildhecken',
+  'Trockenmauern', 'Hangbefestigung', 'Pflasterarbeiten', 'Mähkanten',
+  'Vertikutieren', 'CAD', 'Stauden', 'Bodenanalyse', 'Düngung', 'Pflaster',
+  'Bonsai',
+];
 ---
 
 <Layout>
   <Hero
-    tagline="Garten- und Landschaftsbau am Bodensee"
-    title="Wir gestalten Ihren <em>Traumgarten</em>"
-    subtitle="Professioneller Garten- und Landschaftsbau in Radolfzell und am Bodensee. Von der Planung bis zur Umsetzung — fachgerecht, zuverlässig und mit Leidenschaft für Grün."
-    ctaText="Jetzt Angebot anfragen"
+    tagline="GaLaBau – Meisterbetrieb"
+    title="Natürlich <em>Grün</em>"
+    subtitle="Mein Ziel war es schon immer, Mensch und Natur zusammen zu bringen. Wir müssen uns nicht zwischen Lebensraum für Mensch und Lebensraum für Natur entscheiden. Wir können sie kombinieren."
+    ctaText="Kontakt aufnehmen"
     ctaHref="#kontakt"
     ctaSecondaryText="Leistungen entdecken"
     ctaSecondaryHref="#leistungen"
-    stats={[
-      { value: '100%', label: 'Leidenschaft' },
-      { value: 'Regional', label: 'Am Bodensee' },
-      { value: 'Komplett', label: 'Aus einer Hand' },
-    ]}
   />
 
-  <!-- Leistungen -->
-  <Section title="Unsere Leistungen" id="leistungen" background="alt">
-    <div class="grid">
-      <Card title="Gartengestaltung" icon="🌿">
-        <p>Individuelle Gartenplanung und -gestaltung. Von der Neuanlage bis zur Umgestaltung — wir schaffen grüne Wohlfühlorte.</p>
-      </Card>
-      <Card title="Pflasterarbeiten" icon="🧱">
-        <p>Terrassen, Wege, Einfahrten und Mauern. Fachgerecht verlegt mit hochwertigen Materialien für dauerhafte Ergebnisse.</p>
-      </Card>
-      <Card title="Bepflanzung" icon="🌱">
-        <p>Professionelle Bepflanzungskonzepte mit standortgerechter Pflanzenauswahl. Staudenbeete, Hecken, Bäume und Sträucher.</p>
-      </Card>
-      <Card title="Erdarbeiten" icon="⛏️">
-        <p>Geländemodellierung, Aushub und Bodenaustausch. Wir schaffen die Basis für Ihr Projekt — termingerecht und sauber.</p>
-      </Card>
-      <Card title="Zaunbau" icon="🪵">
-        <p>Sichtschutz, Holzzäune, Metallzäune und Gabionen. Sicher, langlebig und passend zum Gesamtbild Ihres Gartens.</p>
-      </Card>
-      <Card title="Bewässerung" icon="💧">
-        <p>Automatische Bewässerungssysteme für Rasen, Beete und Topfpflanzen. Wassersparend und komfortabel.</p>
-      </Card>
-    </div>
-  </Section>
-
-  <!-- Über uns -->
-  <Section title="Über uns" id="ueber-uns">
-    <div class="about">
-      <div class="about__text">
-        <p>
-          <strong>{siteConfig.companyName}</strong> ist Ihr Partner für professionellen Garten-
-          und Landschaftsbau in {siteConfig.address.city} und am Bodensee. Als inhabergeführter
-          Betrieb legen wir besonderen Wert auf handwerkliche Qualität, nachhaltige Materialien
-          und persönliche Beratung.
-        </p>
-        <p>
-          Von der ersten Idee bis zum fertigen Garten begleiten wir Sie durch jede Phase
-          Ihres Projekts. Ob private Gartengestaltung oder gewerbliche Außenanlage —
-          wir sind Ihr zuverlässiger Partner vor Ort.
-        </p>
+  <!-- Philosophie -->
+  <Section id="philosophie">
+    <div class="philosophy">
+      <div class="philosophy__text">
+        <blockquote>
+          <p>Du wirst überrascht sein, wie viel Leben in einen Raum passt.</p>
+          <cite>Daniel Brunk, Gärtnermeister</cite>
+        </blockquote>
+        <p class="philosophy__heading"><strong>Das ist uns wichtig:</strong></p>
         <ul>
-          <li>Inhabergeführter GaLaBau-Betrieb</li>
-          <li>Persönliche Beratung und Planung vor Ort</li>
-          <li>Termintreue und saubere Ausführung</li>
-          <li>Faire und transparente Preise</li>
+          <li>Fachgerechte Ausführung</li>
+          <li>Fachgerechte Pflege</li>
+          <li>Ressourcen schonen</li>
+          <li>Ökologische Bewirtschaftung</li>
+          <li>Verzicht auf chemischen Pflanzenschutz</li>
         </ul>
       </div>
     </div>
   </Section>
 
+  <!-- Gärten im Klimawandel -->
+  <Section title="Gärten im Klimawandel" id="klimawandel" background="alt">
+    <p class="section-subtitle">Gärten für den Wandel wappnen.</p>
+    <div class="klima-grid">
+      <div class="klima-card">
+        <h3>Begrünung</h3>
+        <p>Pflanzen haben gleich mehrere positive Eigenschaften auf unser Klima.</p>
+      </div>
+      <div class="klima-card">
+        <h3>Wassermanagement</h3>
+        <p>Die Art und Menge an Wasser die uns in Zukunft zur Verfügung steht verändert sich.</p>
+      </div>
+      <div class="klima-card">
+        <h3>Artenvielfalt</h3>
+        <p>Der Verlust an Lebensraum oder ganzer Arten hat Auswirkungen auf unser empfindliches Ökosystem.</p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Top-Leistungen -->
+  <Section title="Unsere Top-Leistungen" id="leistungen">
+    <div class="grid">
+      <Card title="Artenschutz und Habitatpflege" href="/leistungen/artenschutz">
+        <p>Als Landschaftsgärtner sind wir stark mit der Natur verbunden und setzen uns für den Schutz der Arten und den Erhalt bzw. die Förderung von Lebensräumen ein.</p>
+      </Card>
+      <Card title="Bewässerungsanlagen" href="/leistungen/bewaesserung">
+        <p>Professionelle Bewässerungsanlagen mit mehr als 10 Jahren Erfahrung. Ob automatisch oder manuell gesteuert — Systeme für Hecken sind unsere meisterbauten Lösungen.</p>
+      </Card>
+      <Card title="Unkrautmanagement" href="/leistungen/unkrautmanagement">
+        <p>Mit unserem speziellen Verfahren entfernen wir Unkraut auf nahezu allen Flächen. Zusätzlich sind wir in der Lage Oberflächen schonend zu reinigen und zu desinfizieren.</p>
+      </Card>
+      <Card title="Mähroboter" href="/leistungen/maehroboter">
+        <p>„In 10 Jahren gehören Mähroboter in den Garten, wie heute Spülmaschinen in die Küche." Wir setzen auf den Marktführer Husqvarna Automower.</p>
+      </Card>
+      <Card title="Gartenpflege" href="/leistungen/gartenpflege">
+        <p>Ein Garten ist eine planvolle, meist künstlerische Anlage. Dabei verfolgt sie neben dem praktischen Nutzen immer auch ein optisches Ziel.</p>
+      </Card>
+    </div>
+  </Section>
+
+  <!-- Weitere Leistungen (Tag-Cloud) -->
+  <Section title="Weitere Leistungen" background="alt">
+    <div class="tagcloud">
+      {weitereLeistungen.map((tag) => (
+        <span class="tag">{tag}</span>
+      ))}
+    </div>
+    <p class="tagcloud-more">... und mehr!</p>
+  </Section>
+
   <!-- Kontakt -->
-  <Section title="Kontakt" id="kontakt" background="alt">
+  <Section title="Kontakt" id="kontakt">
     <div class="contact">
       <div class="contact__info">
         <p>
@@ -106,24 +135,108 @@ import { siteConfig } from '../config';
 </Layout>
 
 <style>
+  /* Grid */
   .grid {
     display: grid;
     gap: var(--space-xl);
   }
 
-  .about__text {
+  /* Philosophy */
+  .philosophy {
     max-width: var(--max-width-narrow);
     margin-inline: auto;
   }
 
-  .about__text p + p {
-    margin-top: var(--space-md);
+  .philosophy blockquote {
+    font-family: var(--font-family-heading);
+    font-style: italic;
+    font-size: var(--font-size-xl);
+    color: var(--color-text);
+    border-left: 4px solid var(--color-primary);
+    padding-left: var(--space-lg);
+    margin-bottom: var(--space-xl);
   }
 
-  .about__text ul {
-    margin-top: var(--space-lg);
+  .philosophy cite {
+    display: block;
+    font-size: var(--font-size-sm);
+    font-style: normal;
+    color: var(--color-primary);
+    margin-top: var(--space-sm);
   }
 
+  .philosophy__heading {
+    margin-bottom: var(--space-sm);
+  }
+
+  .philosophy ul {
+    margin-top: var(--space-sm);
+  }
+
+  /* Klimawandel */
+  .section-subtitle {
+    text-align: center;
+    color: var(--color-text-light);
+    margin-top: calc(-1 * var(--space-xl));
+    margin-bottom: var(--space-2xl);
+  }
+
+  .klima-grid {
+    display: grid;
+    gap: var(--space-xl);
+  }
+
+  .klima-card {
+    text-align: center;
+    padding: var(--space-xl);
+  }
+
+  .klima-card h3 {
+    color: var(--color-secondary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .klima-card p {
+    color: var(--color-text-light);
+    margin-inline: auto;
+  }
+
+  /* Tag Cloud */
+  .tagcloud {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm);
+    max-width: var(--max-width);
+    margin-inline: auto;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(153, 195, 59, 0.1);
+    color: var(--color-text);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+  }
+
+  .tag:hover {
+    background: var(--color-primary);
+    color: var(--color-text);
+  }
+
+  .tagcloud-more {
+    text-align: center;
+    margin-top: var(--space-xl);
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  /* Contact */
   .contact {
     max-width: var(--max-width-narrow);
     margin-inline: auto;
@@ -143,9 +256,14 @@ import { siteConfig } from '../config';
     margin-top: var(--space-xs);
   }
 
+  /* Responsive */
   @media (min-width: 768px) {
     .grid {
       grid-template-columns: repeat(2, 1fr);
+    }
+
+    .klima-grid {
+      grid-template-columns: repeat(3, 1fr);
     }
 
     .contact__details {

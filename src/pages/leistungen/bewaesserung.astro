@@ -1,0 +1,55 @@
+---
+import Layout from '../../components/Layout.astro';
+import Section from '../../components/Section.astro';
+---
+
+<Layout title="Bewässerungsanlagen" description="Professionelle Bewässerungsanlagen mit mehr als 10 Jahren Erfahrung. Hunter Irrigation Installation Technician.">
+  <Section>
+    <div class="leistung">
+      <a href="/#leistungen" class="leistung__back">&larr; Alle Leistungen</a>
+      <h1>Bewässerungsanlagen</h1>
+      <p>
+        Professionelle Bewässerungsanlagen mit mehr als 10 Jahren Erfahrung. Ob automatisch
+        oder manuell gesteuert — Systeme für Hecken sind unsere meisterbauten Lösungen.
+        Sie bringen Wasser genau dorthin, wo es gebraucht wird.
+      </p>
+      <p>
+        Als zertifizierter Hunter Irrigation Installation Technician planen und installieren
+        wir Bewässerungssysteme für Privatgärten, Gewerbeflächen und öffentliche Anlagen.
+        Wassersparend, zuverlässig und individuell auf Ihre Bedürfnisse abgestimmt.
+      </p>
+      <a href="/#kontakt" class="btn">Beratungsgespräch vereinbaren</a>
+    </div>
+  </Section>
+</Layout>
+
+<style>
+  .leistung {
+    max-width: var(--max-width-narrow);
+    margin-inline: auto;
+  }
+
+  .leistung__back {
+    display: inline-block;
+    margin-bottom: var(--space-xl);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+  }
+
+  .leistung__back:hover {
+    color: var(--color-primary);
+  }
+
+  .leistung h1 {
+    margin-bottom: var(--space-xl);
+  }
+
+  .leistung p {
+    margin-bottom: var(--space-md);
+    color: var(--color-text-light);
+  }
+
+  .leistung .btn {
+    margin-top: var(--space-xl);
+  }
+</style>

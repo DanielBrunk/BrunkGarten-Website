@@ -1,0 +1,54 @@
+---
+import Layout from '../../components/Layout.astro';
+import Section from '../../components/Section.astro';
+---
+
+<Layout title="Unkrautmanagement" description="Professionelle Unkrautentfernung und Flächenreinigung ohne Chemie.">
+  <Section>
+    <div class="leistung">
+      <a href="/#leistungen" class="leistung__back">&larr; Alle Leistungen</a>
+      <h1>Unkrautmanagement</h1>
+      <p>
+        Mit unserem speziellen Verfahren entfernen wir Unkraut auf nahezu allen Flächen.
+        Zusätzlich sind wir in der Lage Oberflächen schonend zu reinigen und zu desinfizieren.
+      </p>
+      <p>
+        Unser Ansatz setzt auf nachhaltige Methoden statt Chemie. Durch thermische Verfahren,
+        mechanische Entfernung und gezielte Vorbeugung halten wir Ihre Flächen dauerhaft
+        sauber und gepflegt.
+      </p>
+      <a href="/#kontakt" class="btn">Beratungsgespräch vereinbaren</a>
+    </div>
+  </Section>
+</Layout>
+
+<style>
+  .leistung {
+    max-width: var(--max-width-narrow);
+    margin-inline: auto;
+  }
+
+  .leistung__back {
+    display: inline-block;
+    margin-bottom: var(--space-xl);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+  }
+
+  .leistung__back:hover {
+    color: var(--color-primary);
+  }
+
+  .leistung h1 {
+    margin-bottom: var(--space-xl);
+  }
+
+  .leistung p {
+    margin-bottom: var(--space-md);
+    color: var(--color-text-light);
+  }
+
+  .leistung .btn {
+    margin-top: var(--space-xl);
+  }
+</style>

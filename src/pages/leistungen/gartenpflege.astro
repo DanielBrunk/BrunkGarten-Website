@@ -1,0 +1,56 @@
+---
+import Layout from '../../components/Layout.astro';
+import Section from '../../components/Section.astro';
+---
+
+<Layout title="Gartenpflege" description="Professionelle Gartenpflege — damit Ihr Garten das ganze Jahr über gepflegt und vital bleibt.">
+  <Section>
+    <div class="leistung">
+      <a href="/#leistungen" class="leistung__back">&larr; Alle Leistungen</a>
+      <h1>Gartenpflege</h1>
+      <p>
+        Warum Gartenpflege? Optischer Anspruch. Ein Garten ist eine planvolle, meist künstlerische
+        Anlage. Dabei verfolgt sie neben dem praktischen Nutzen immer auch ein optisches Ziel.
+        Funktionalität erhalten — funktionale Bereiche wie Wege, Terrassen und Rasen brauchen
+        regelmäßige Pflege.
+      </p>
+      <p>
+        Wir bieten regelmäßige Gartenpflege an — von Rasenmähen und Heckenschnitt bis hin zu
+        Staudenpflege, Düngung und saisonaler Bepflanzung. Abgestimmt auf Ihren Garten
+        und Ihre Wünsche.
+      </p>
+      <a href="/#kontakt" class="btn">Beratungsgespräch vereinbaren</a>
+    </div>
+  </Section>
+</Layout>
+
+<style>
+  .leistung {
+    max-width: var(--max-width-narrow);
+    margin-inline: auto;
+  }
+
+  .leistung__back {
+    display: inline-block;
+    margin-bottom: var(--space-xl);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+  }
+
+  .leistung__back:hover {
+    color: var(--color-primary);
+  }
+
+  .leistung h1 {
+    margin-bottom: var(--space-xl);
+  }
+
+  .leistung p {
+    margin-bottom: var(--space-md);
+    color: var(--color-text-light);
+  }
+
+  .leistung .btn {
+    margin-top: var(--space-xl);
+  }
+</style>
