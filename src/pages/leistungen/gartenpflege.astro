@@ -3,9 +3,8 @@ import Layout from '../../components/Layout.astro';
 ---
 
 <Layout title="Gartenpflege" description="Professionelle Gartenpflege — damit Ihr Garten das ganze Jahr über gepflegt und vital bleibt.">
-  <!-- VARIANTE 2: Gestapelte Kacheln -->
   <section class="tiles">
-    <div class="tile tile--primary tile--header">
+    <div class="tile tile--primary">
       <a href="/" class="back">&larr; Startseite</a>
       <svg class="tile__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
@@ -15,7 +14,7 @@ import Layout from '../../components/Layout.astro';
       <p class="tile__subtitle">Regelmäßige Pflege erhält Funktion und Optik Ihres Gartens.</p>
     </div>
 
-    <div class="tile tile--content">
+    <div class="tile">
       <h2>Warum Gartenpflege?</h2>
       <p>
         Ein Garten ist eine planvolle, meist künstlerische Anlage. Dabei verfolgt sie
@@ -24,7 +23,7 @@ import Layout from '../../components/Layout.astro';
       </p>
     </div>
 
-    <div class="tile tile--alt tile--content">
+    <div class="tile tile--alt">
       <h2>Unser Angebot</h2>
       <p>
         Wir bieten regelmäßige Gartenpflege an — von Rasenmähen und Heckenschnitt bis hin zu
@@ -33,8 +32,8 @@ import Layout from '../../components/Layout.astro';
       </p>
     </div>
 
-    <a href="/#kontakt" class="tile tile--dark tile--cta">
-      <p>Beratungsgespräch vereinbaren</p>
+    <a href="/#kontakt" class="tile tile--dark">
+      <p class="tile__cta-text">Beratungsgespräch vereinbaren</p>
       <span class="tile__arrow" aria-hidden="true">&rarr;</span>
     </a>
   </section>
@@ -52,8 +51,8 @@ import Layout from '../../components/Layout.astro';
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: var(--space-2xl) var(--space-3xl);
     min-height: 50vh;
+    padding: var(--space-2xl) var(--space-3xl);
     text-decoration: none;
     color: var(--color-text);
     background: var(--color-background);
@@ -77,42 +76,12 @@ import Layout from '../../components/Layout.astro';
     background: var(--color-text);
     color: var(--color-text-inverse);
     border-color: rgba(255, 255, 255, 0.1);
-  }
-
-  .tile--header {
-    grid-column: 1 / -1;
-    min-height: 50vh;
-  }
-
-  .tile--content h2 {
-    font-family: var(--font-family-heading);
-    font-size: var(--font-size-2xl);
-    margin-bottom: var(--space-md);
-  }
-
-  .tile--content p {
-    color: var(--color-text-light);
-    max-width: 45ch;
-  }
-
-  .tile--cta {
-    grid-column: 1 / -1;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    min-height: auto;
-    padding: var(--space-xl) var(--space-3xl);
     transition: background-color var(--transition-base);
   }
 
-  .tile--cta:hover {
+  a.tile--dark:hover {
     background-color: color-mix(in srgb, var(--color-primary) 15%, var(--color-text));
-  }
-
-  .tile--cta p {
-    font-family: var(--font-family-heading);
-    font-size: var(--font-size-xl);
-    font-weight: 700;
+    color: var(--color-text-inverse);
   }
 
   .tile__icon {
@@ -124,24 +93,48 @@ import Layout from '../../components/Layout.astro';
 
   .tile h1 {
     font-family: var(--font-family-heading);
-    font-size: var(--font-size-4xl);
+    font-size: var(--font-size-3xl);
     line-height: var(--line-height-tight);
     margin-bottom: var(--space-md);
   }
 
   .tile__subtitle {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-md);
     opacity: 0.75;
     max-width: 40ch;
   }
 
+  .tile h2 {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .tile p {
+    color: var(--color-text-light);
+    max-width: 45ch;
+  }
+
+  .tile--dark p {
+    color: var(--color-text-inverse);
+  }
+
+  .tile__cta-text {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    opacity: 1;
+  }
+
   .tile__arrow {
+    margin-top: auto;
+    padding-top: var(--space-xl);
     font-size: var(--font-size-2xl);
     opacity: 0.4;
     transition: transform var(--transition-fast), opacity var(--transition-fast);
   }
 
-  .tile--cta:hover .tile__arrow {
+  a.tile--dark:hover .tile__arrow {
     transform: translateX(8px);
     opacity: 1;
     color: var(--color-primary);
@@ -165,13 +158,17 @@ import Layout from '../../components/Layout.astro';
     }
 
     .tile {
+      min-height: 45vh;
       padding: var(--space-xl) var(--space-lg);
       border-right: none;
-      min-height: 40vh;
     }
 
     .tile:nth-child(odd) {
       border-right: none;
+    }
+
+    .tile h1 {
+      font-size: var(--font-size-2xl);
     }
   }
 </style>
