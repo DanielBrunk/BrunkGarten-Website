@@ -3,7 +3,7 @@ import Layout from '../../components/Layout.astro';
 import ContactTile from '../../components/ContactTile.astro';
 ---
 
-<Layout title="Bewässerung" description="Professionelle Bewässerungsanlagen mit mehr als 10 Jahren Erfahrung.">
+<Layout title="Bewässerung" description="Professionelle Bewässerungsanlagen mit mehr als 10 Jahren Erfahrung. Zertifizierter Hunter Irrigation Fachbetrieb.">
   <section class="tiles">
     <div class="tile tile--primary">
       <a href="/" class="back">&larr; Startseite</a>
@@ -16,21 +16,73 @@ import ContactTile from '../../components/ContactTile.astro';
     </div>
 
     <div class="tile">
-      <h2>Erfahrung & Technik</h2>
+      <p class="tile__label">Mehr als 10 Jahre Erfahrung</p>
+      <h2>Wasser genau dort, wo es gebraucht wird</h2>
       <p>
-        Professionelle Bewässerungsanlagen mit mehr als 10 Jahren Erfahrung. Ob automatisch
-        oder manuell gesteuert — Systeme für Hecken sind unsere meisterbauten Lösungen.
-        Sie bringen Wasser genau dorthin, wo es gebraucht wird.
+        Ob automatisch oder manuell gesteuert — wir planen und installieren Bewässerungssysteme
+        für Privatgärten, Gewerbeflächen und öffentliche Anlagen. Wassersparend, zuverlässig
+        und individuell abgestimmt.
       </p>
     </div>
 
     <div class="tile tile--alt">
-      <h2>Zertifizierte Planung</h2>
+      <h2>Hecken</h2>
       <p>
-        Als zertifizierter Hunter Irrigation Installation Technician planen und installieren
-        wir Bewässerungssysteme für Privatgärten, Gewerbeflächen und öffentliche Anlagen.
-        Wassersparend, zuverlässig und individuell abgestimmt.
+        Unser Klassiker: Heckenbewässerung — automatisch oder manuell gesteuert.
+        Das Wasser gelangt direkt an die Wurzel, wo es gebraucht wird.
       </p>
+    </div>
+
+    <div class="tile">
+      <h2>Beete</h2>
+      <p>
+        Individuelle Lösungen mit Tropfbewässerung, Sprühern, Schrubblern,
+        Bubblern und Nebeldüsen — abgestimmt auf jede Bepflanzung.
+      </p>
+    </div>
+
+    <div class="tile">
+      <h2>Bäume</h2>
+      <p>
+        Bäume verdunsten große Mengen Wasser. Gerade in Hitze- und Trockenperioden
+        sichern Wurzelzonenbewässerungen die Vitalität Ihrer Bäume.
+      </p>
+    </div>
+
+    <div class="tile tile--alt">
+      <h2>Rasen</h2>
+      <p>
+        Für einen dichten, grünen Rasen sind Rasensprenger unerlässlich.
+        Wir planen die optimale Sprinklerverteilung für Ihre Rasenfläche.
+      </p>
+    </div>
+
+    <div class="tile tile--alt">
+      <h2>Pipeline</h2>
+      <p>
+        Wassersteckdosen im Boden — unsichtbar, praktisch und jederzeit einsatzbereit.
+        Kein Schlauchverlegen mehr im Garten.
+      </p>
+    </div>
+
+    <div class="tile">
+      <h2>Steuerung</h2>
+      <p>
+        Moderne Steuerungen nutzen Sensoren und Wetterdaten für optimalen Wasserverbrauch.
+        Bedienung bequem per App oder Browser — auch aus der Ferne.
+      </p>
+    </div>
+
+    <div class="tile tile--secondary">
+      <p class="tile__label">Kostenlose Erstberatung</p>
+      <h2>Service</h2>
+      <ul class="tile__list">
+        <li>Installation und Wartung von Bewässerungsanlagen und Zisternen</li>
+        <li>Winterservice</li>
+        <li>Umbau und Erweiterung bestehender Anlagen</li>
+        <li>Reinigung und Reaktivierung von Zisternen</li>
+        <li>Umbau auf smarte Steuerungen und Fernwartung</li>
+      </ul>
     </div>
 
     <div class="tile tile--dark">
@@ -71,6 +123,24 @@ import ContactTile from '../../components/ContactTile.astro';
     background: var(--color-background-alt);
   }
 
+  .tile--secondary {
+    background: var(--color-secondary);
+    color: var(--color-text-inverse);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .tile--secondary .tile__label {
+    color: var(--color-primary);
+  }
+
+  .tile--secondary h2 {
+    color: var(--color-text-inverse);
+  }
+
+  .tile--secondary .tile__list {
+    color: rgba(247, 244, 239, 0.85);
+  }
+
   .tile--dark {
     background: var(--color-text);
     color: var(--color-text-inverse);
@@ -82,6 +152,15 @@ import ContactTile from '../../components/ContactTile.astro';
     height: 48px;
     margin-bottom: var(--space-lg);
     opacity: 0.7;
+  }
+
+  .tile__label {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.6;
+    margin-bottom: var(--space-sm);
   }
 
   .tile h1 {
@@ -105,6 +184,25 @@ import ContactTile from '../../components/ContactTile.astro';
   .tile p {
     color: var(--color-text-light);
     max-width: 45ch;
+  }
+
+  .tile--secondary p,
+  .tile--dark p {
+    color: rgba(247, 244, 239, 0.75);
+  }
+
+  .tile__list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tile__list li {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .tile__list li:last-child {
+    border-bottom: none;
   }
 
   .back {

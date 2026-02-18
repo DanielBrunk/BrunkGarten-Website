@@ -3,7 +3,7 @@ import Layout from '../../components/Layout.astro';
 import ContactTile from '../../components/ContactTile.astro';
 ---
 
-<Layout title="Mähroboter" description="Husqvarna Automower — Verkauf und Installation vom zertifizierten Fachbetrieb.">
+<Layout title="Mähroboter" description="Husqvarna Automower — Verkauf, Installation und Service vom zertifizierten Fachbetrieb.">
   <section class="tiles">
     <div class="tile tile--primary">
       <a href="/" class="back">&larr; Startseite</a>
@@ -20,20 +20,65 @@ import ContactTile from '../../components/ContactTile.astro';
     </div>
 
     <div class="tile">
-      <h2>Zukunft im Garten</h2>
+      <h2>Verkauf und Installation</h2>
       <p>
         „In 10 Jahren gehören Mähroboter in den Garten, wie heute Spülmaschinen in die Küche."
         Wir setzen auf den Marktführer Husqvarna Automower und sind auf deren Verkauf und
-        Installation spezialisiert.
+        Installation spezialisiert. Unser geschultes Personal und gute Beziehungen zum
+        Hersteller garantieren professionelle Beratung und Umsetzung.
       </p>
     </div>
 
     <div class="tile tile--alt">
-      <h2>Alles aus einer Hand</h2>
+      <h2>Rundum-Service</h2>
       <p>
-        Von der Beratung über die Planung des Begrenzungskabels bis zur Inbetriebnahme —
-        alles aus einer Hand. Wir kümmern uns auch um Wartung und Service.
+        Wir bieten Rundum-Service für Husqvarna Automower und Gardena Sileno.
+        Von der Wartung über Reparaturen bis zum Überwinterungsservice —
+        Ihr Mähroboter ist bei uns in guten Händen.
       </p>
+    </div>
+
+    <div class="tile tile--secondary">
+      <h2>Kostenlos testen!</h2>
+      <p>
+        Überzeugen Sie sich selbst: Wir installieren ein Vorführgerät
+        kostenlos und unverbindlich bei Ihnen im Garten. Nach einer Woche
+        entscheiden Sie, ob der Automower zu Ihnen passt.
+      </p>
+    </div>
+
+    <div class="tile">
+      <h2>In wenigen Schritten zum perfekten Rasen</h2>
+      <ol class="tile__steps">
+        <li>
+          <span class="tile__step-nr">1</span>
+          <div>
+            <strong>Kostenlose Beratung</strong>
+            <p>Wir analysieren Ihren Garten und empfehlen das passende Modell.</p>
+          </div>
+        </li>
+        <li>
+          <span class="tile__step-nr">2</span>
+          <div>
+            <strong>Kostenlose Testphase</strong>
+            <p>Ein Vorführgerät zeigt Ihnen das Ergebnis direkt in Ihrem Garten.</p>
+          </div>
+        </li>
+        <li>
+          <span class="tile__step-nr">3</span>
+          <div>
+            <strong>Professionelle Installation</strong>
+            <p>Begrenzungskabel, Ladestation — alles fachgerecht installiert.</p>
+          </div>
+        </li>
+        <li>
+          <span class="tile__step-nr">4</span>
+          <div>
+            <strong>Nie mehr mähen!</strong>
+            <p>Lehnen Sie sich zurück und genießen Sie Ihren perfekten Rasen.</p>
+          </div>
+        </li>
+      </ol>
     </div>
 
     <div class="tile tile--dark">
@@ -74,6 +119,20 @@ import ContactTile from '../../components/ContactTile.astro';
     background: var(--color-background-alt);
   }
 
+  .tile--secondary {
+    background: var(--color-secondary);
+    color: var(--color-text-inverse);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .tile--secondary h2 {
+    color: var(--color-text-inverse);
+  }
+
+  .tile--secondary p {
+    color: rgba(247, 244, 239, 0.85);
+  }
+
   .tile--dark {
     background: var(--color-text);
     color: var(--color-text-inverse);
@@ -108,6 +167,44 @@ import ContactTile from '../../components/ContactTile.astro';
   .tile p {
     color: var(--color-text-light);
     max-width: 45ch;
+  }
+
+  .tile--dark p {
+    color: rgba(247, 244, 239, 0.75);
+  }
+
+  .tile__steps {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .tile__steps li {
+    display: flex;
+    gap: var(--space-md);
+    align-items: flex-start;
+    margin: 0;
+  }
+
+  .tile__step-nr {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: var(--color-text);
+    font-weight: 700;
+    font-size: var(--font-size-sm);
+  }
+
+  .tile__steps p {
+    font-size: var(--font-size-sm);
+    margin-top: var(--space-xs);
   }
 
   .back {

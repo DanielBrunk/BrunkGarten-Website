@@ -17,20 +17,69 @@ import ContactTile from '../../components/ContactTile.astro';
 
     <div class="tile">
       <h2>Warum Gartenpflege?</h2>
-      <p>
-        Ein Garten ist eine planvolle, meist künstlerische Anlage. Dabei verfolgt sie
-        neben dem praktischen Nutzen immer auch ein optisches Ziel. Funktionale Bereiche
-        wie Wege, Terrassen und Rasen brauchen regelmäßige Pflege.
-      </p>
+      <dl class="tile__features">
+        <div>
+          <dt>Optischer Anspruch</dt>
+          <dd>Ein Garten ist eine planvolle, oft künstlerische Anlage — neben dem praktischen Nutzen verfolgt sie immer auch ein optisches Ziel.</dd>
+        </div>
+        <div>
+          <dt>Funktionalität erhalten</dt>
+          <dd>Funktionale Bereiche wie Grillplatz, Spielecke, Wege und Terrassen brauchen regelmäßige Pflege.</dd>
+        </div>
+        <div>
+          <dt>Optimale Entwicklung</dt>
+          <dd>Pflanzen brauchen den richtigen Standort, Schnitt und Pflege, um sich optimal zu entwickeln.</dd>
+        </div>
+        <div>
+          <dt>Werterhalt</dt>
+          <dd>Regelmäßige Pflege verlängert die Lebensdauer und erhält den finanziellen wie ästhetischen Wert Ihres Gartens.</dd>
+        </div>
+      </dl>
     </div>
 
     <div class="tile tile--alt">
+      <h2>Wie erkenne ich schlechte Gartenpflege?</h2>
+      <ul class="tile__check-list">
+        <li>Pflanzen verlieren ihren natürlichen Habitus</li>
+        <li>Pflanzen fallen aus oder kümmern</li>
+        <li>Beete wirken ungepflegt, Unkraut breitet sich aus</li>
+        <li>Hecken zeigen „Hausmeisterschnitt" oder Stummelschnitt</li>
+        <li>Rasen ist lückig oder vermoost</li>
+      </ul>
+    </div>
+
+    <div class="tile">
+      <h2>Fachgerechte Gartenpflege</h2>
+      <dl class="tile__features">
+        <div>
+          <dt>Fachgerechter Schnitt</dt>
+          <dd>Jede Pflanze hat eigene Ansprüche an Schnittzeitpunkt und -technik.</dd>
+        </div>
+        <div>
+          <dt>Pflegestufen</dt>
+          <dd>Von der Grundpflege bis zur intensiven Staudenpflege — abgestuft nach Ihren Wünschen.</dd>
+        </div>
+        <div>
+          <dt>Bedarf erkennen</dt>
+          <dd>Wir erkennen Nährstoffmängel, Schädlingsbefall und Standortprobleme frühzeitig.</dd>
+        </div>
+        <div>
+          <dt>Gestaltungsziel</dt>
+          <dd>Pflege orientiert sich immer am ursprünglichen Gestaltungsziel Ihres Gartens.</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="tile tile--secondary">
       <h2>Unser Angebot</h2>
-      <p>
-        Wir bieten regelmäßige Gartenpflege an — von Rasenmähen und Heckenschnitt bis hin zu
-        Staudenpflege, Düngung und saisonaler Bepflanzung. Abgestimmt auf Ihren Garten
-        und Ihre Wünsche.
-      </p>
+      <ul class="tile__list">
+        <li>Professionelle Grünpflege für Privatgärten, Wohnanlagen und Gewerbeflächen</li>
+        <li>Dauerpflege mit individuellem Pflegeplan</li>
+        <li>Umgestaltung zur besseren Pflegbarkeit</li>
+        <li>Pflanzkonzepte für jede Jahreszeit</li>
+        <li>Rasenanlage und -pflege</li>
+        <li>Nährstoffanalysen und Bodenverbesserung</li>
+      </ul>
     </div>
 
     <div class="tile tile--dark">
@@ -71,6 +120,16 @@ import ContactTile from '../../components/ContactTile.astro';
     background: var(--color-background-alt);
   }
 
+  .tile--secondary {
+    background: var(--color-secondary);
+    color: var(--color-text-inverse);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .tile--secondary h2 {
+    color: var(--color-text-inverse);
+  }
+
   .tile--dark {
     background: var(--color-text);
     color: var(--color-text-inverse);
@@ -105,6 +164,78 @@ import ContactTile from '../../components/ContactTile.astro';
   .tile p {
     color: var(--color-text-light);
     max-width: 45ch;
+  }
+
+  .tile--secondary p,
+  .tile--dark p {
+    color: rgba(247, 244, 239, 0.75);
+  }
+
+  .tile__features {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .tile__features dt {
+    font-weight: 700;
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-xs);
+  }
+
+  .tile__features dd {
+    color: var(--color-text-light);
+    font-size: var(--font-size-sm);
+    max-width: 45ch;
+  }
+
+  .tile__check-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tile__check-list li {
+    padding: var(--space-sm) 0;
+    padding-left: var(--space-lg);
+    position: relative;
+    color: var(--color-text-light);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tile__check-list li:last-child {
+    border-bottom: none;
+  }
+
+  .tile__check-list li::before {
+    content: '!';
+    position: absolute;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(200, 60, 60, 0.1);
+    color: #c83c3c;
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: calc(var(--space-sm) + 2px);
+  }
+
+  .tile__list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tile__list li {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(247, 244, 239, 0.85);
+  }
+
+  .tile__list li:last-child {
+    border-bottom: none;
   }
 
   .back {

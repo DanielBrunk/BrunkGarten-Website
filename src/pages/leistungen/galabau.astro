@@ -13,23 +13,45 @@ import ContactTile from '../../components/ContactTile.astro';
         <path d="m9 15 7.879-7.878" />
       </svg>
       <h1>GaLaBau</h1>
-      <p class="tile__subtitle">Garten- und Landschaftsbau vom Meisterbetrieb</p>
+      <p class="tile__subtitle">Garten- und Landschaftsbau vom Meisterbetrieb.</p>
     </div>
 
     <div class="tile">
       <h2>Planung & Neuanlage</h2>
       <p>
-        Von der Planung über die Neuanlage bis zur Umgestaltung bestehender Gärten —
+        Von der ersten Skizze bis zur fertigen Anlage — wir planen und realisieren
+        Ihren Traumgarten. Ob Neuanlage oder Umgestaltung bestehender Gärten,
         wir setzen Ihr Projekt fachgerecht und termingerecht um.
       </p>
     </div>
 
     <div class="tile tile--alt">
       <h2>Leistungsspektrum</h2>
+      <ul class="tile__feature-list">
+        <li>Pflasterarbeiten und Naturstein</li>
+        <li>Holzterrassen und Holzbau</li>
+        <li>Mauern, Treppen und Einfassungen</li>
+        <li>Zäune und Sichtschutz</li>
+        <li>Erdarbeiten und Geländemodellierung</li>
+        <li>Bepflanzung und Pflanzkonzepte</li>
+      </ul>
+    </div>
+
+    <div class="tile tile--secondary">
+      <h2>Meisterbetrieb</h2>
       <p>
-        Pflasterarbeiten, Naturstein, Holzterrassen, Mauern, Treppen, Zäune, Sichtschutz,
-        Erdarbeiten, Bepflanzung und vieles mehr. Alles aus einer Hand, von der ersten
-        Skizze bis zur fertigen Anlage.
+        Als eingetragener Meisterbetrieb der Handwerkskammer Konstanz stehen wir
+        für fachliche Kompetenz und handwerkliche Qualität. Von der Beratung über
+        die Planung bis zur Ausführung — alles aus einer Hand.
+      </p>
+    </div>
+
+    <div class="tile">
+      <h2>Vom Entwurf zur Anlage</h2>
+      <p>
+        Jeder Garten ist individuell. Wir nehmen uns Zeit für Ihre Wünsche,
+        berücksichtigen Standort und Gegebenheiten und entwickeln ein Konzept,
+        das zu Ihnen und Ihrem Grundstück passt. Persönlich, direkt und ohne Umwege.
       </p>
     </div>
 
@@ -71,6 +93,20 @@ import ContactTile from '../../components/ContactTile.astro';
     background: var(--color-background-alt);
   }
 
+  .tile--secondary {
+    background: var(--color-secondary);
+    color: var(--color-text-inverse);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .tile--secondary h2 {
+    color: var(--color-text-inverse);
+  }
+
+  .tile--secondary p {
+    color: rgba(247, 244, 239, 0.85);
+  }
+
   .tile--dark {
     background: var(--color-text);
     color: var(--color-text-inverse);
@@ -105,6 +141,25 @@ import ContactTile from '../../components/ContactTile.astro';
   .tile p {
     color: var(--color-text-light);
     max-width: 45ch;
+  }
+
+  .tile--dark p {
+    color: rgba(247, 244, 239, 0.75);
+  }
+
+  .tile__feature-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tile__feature-list li {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-light);
+  }
+
+  .tile__feature-list li:last-child {
+    border-bottom: none;
   }
 
   .back {

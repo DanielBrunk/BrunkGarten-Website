@@ -3,7 +3,7 @@ import Layout from '../../components/Layout.astro';
 import ContactTile from '../../components/ContactTile.astro';
 ---
 
-<Layout title="Artenschutz" description="Naturnahe Gärten mit ökologischem Mehrwert — Schutz der Arten und Erhalt von Lebensräumen.">
+<Layout title="Artenschutz" description="Artenschutz und Habitatpflege — Schutz der Arten und Erhalt von Lebensräumen im Garten- und Landschaftsbau.">
   <section class="tiles">
     <div class="tile tile--primary">
       <a href="/" class="back">&larr; Startseite</a>
@@ -24,11 +24,54 @@ import ContactTile from '../../components/ContactTile.astro';
       <p>
         Als Landschaftsgärtner und Landschaftsgärtnerinnen sind wir stark mit der Natur verbunden
         und setzen uns entsprechend auch für den Schutz der Arten und den Erhalt bzw. die Förderung
-        von Lebensräumen ein.
+        von Lebensräumen ein. Artenschutzprojekte sind fester Bestandteil unserer Arbeit.
       </p>
     </div>
 
     <div class="tile tile--alt">
+      <h2>Artenverlust</h2>
+      <p>
+        Der Verlust von Lebensräumen ist die Hauptursache für den Rückgang vieler Arten.
+        Populationen gehen teils dramatisch zurück. Als Landschaftsbau-Betrieb können
+        wir aktiv gegensteuern — durch die Schaffung und Pflege wertvoller Habitate.
+      </p>
+    </div>
+
+    <div class="tile">
+      <h2>Maßnahmen bei Bauprojekten</h2>
+      <p>
+        Bei Bau- und Infrastrukturprojekten kommen wir mit geschützten Arten in Berührung.
+        In enger Zusammenarbeit mit Behörden und Gutachtern setzen wir die notwendigen
+        Artenschutzmaßnahmen fachgerecht um.
+      </p>
+    </div>
+
+    <div class="tile tile--secondary">
+      <h2>Leistungen</h2>
+      <ul class="tile__list">
+        <li>Pflanzungen heimischer Arten</li>
+        <li>Schutzzäune und Leiteinrichtungen</li>
+        <li>Mäharbeiten mit Artenschutzauflagen</li>
+        <li>Gehölzpflege in Schutzgebieten</li>
+        <li>Ansaatarbeiten mit Regiosaatgut</li>
+        <li>Habitatbau (Steinriegel, Totholz, Gewässer)</li>
+        <li>Erdarbeiten für Biotopgestaltung</li>
+        <li>Sonderprojekte nach Gutachteranforderung</li>
+      </ul>
+    </div>
+
+    <div class="tile tile--alt">
+      <h2>Projekte</h2>
+      <p class="tile__label">Referenz</p>
+      <h3>Habitat Zauneidechse und Gelbbauchunke</h3>
+      <p>
+        Eines unserer Schwerpunktprojekte: die Schaffung und Pflege von Lebensräumen
+        für die Zauneidechse und die Gelbbauchunke — beides streng geschützte Arten.
+        Wir bauen Steinriegel, gestalten Gewässer und pflegen die Habitate langfristig.
+      </p>
+    </div>
+
+    <div class="tile">
       <h2>Lebensraum schaffen</h2>
       <p>
         Wir gestalten Gärten so, dass sie nicht nur für Menschen schön sind, sondern auch
@@ -75,6 +118,16 @@ import ContactTile from '../../components/ContactTile.astro';
     background: var(--color-background-alt);
   }
 
+  .tile--secondary {
+    background: var(--color-secondary);
+    color: var(--color-text-inverse);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .tile--secondary h2 {
+    color: var(--color-text-inverse);
+  }
+
   .tile--dark {
     background: var(--color-text);
     color: var(--color-text-inverse);
@@ -86,6 +139,15 @@ import ContactTile from '../../components/ContactTile.astro';
     height: 48px;
     margin-bottom: var(--space-lg);
     opacity: 0.7;
+  }
+
+  .tile__label {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.6;
+    margin-bottom: var(--space-sm);
   }
 
   .tile h1 {
@@ -106,9 +168,35 @@ import ContactTile from '../../components/ContactTile.astro';
     margin-bottom: var(--space-md);
   }
 
+  .tile h3 {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-md);
+  }
+
   .tile p {
     color: var(--color-text-light);
     max-width: 45ch;
+  }
+
+  .tile--secondary p,
+  .tile--dark p {
+    color: rgba(247, 244, 239, 0.75);
+  }
+
+  .tile__list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tile__list li {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(247, 244, 239, 0.85);
+  }
+
+  .tile__list li:last-child {
+    border-bottom: none;
   }
 
   .back {
