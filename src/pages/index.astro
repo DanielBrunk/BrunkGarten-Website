@@ -96,7 +96,9 @@ import { siteConfig } from '../config';
         {siteConfig.address.street}<br />
         {siteConfig.address.zip} {siteConfig.address.city}<br />
         <a href={`tel:${siteConfig.phone}`}>{siteConfig.phoneDisplay}</a><br />
-        <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+        <a href="#" class="email" data-name="info" data-domain="brunk-garten.de">
+          <span class="email__protected" aria-label="info at brunk-garten.de">ed.netrag-knurb@ofni</span>
+        </a>
       </address>
 
       <div class="tile__hours">
@@ -314,6 +316,12 @@ import { siteConfig } from '../config';
   .tile__address a:hover {
     opacity: 1;
     color: var(--color-primary);
+  }
+
+  /* E-Mail-Schutz: Text ist rückwärts im HTML, CSS dreht ihn visuell */
+  .email__protected {
+    unicode-bidi: bidi-override;
+    direction: rtl;
   }
 
   .tile__label {

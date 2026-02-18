@@ -1,5 +1,6 @@
 ---
 import Layout from '../../components/Layout.astro';
+import { siteConfig } from '../../config';
 ---
 
 <Layout title="Gartenpflege" description="Professionelle Gartenpflege — damit Ihr Garten das ganze Jahr über gepflegt und vital bleibt.">
@@ -32,10 +33,17 @@ import Layout from '../../components/Layout.astro';
       </p>
     </div>
 
-    <a href="/#kontakt" class="tile tile--dark">
-      <p class="tile__cta-text">Beratungsgespräch vereinbaren</p>
-      <span class="tile__arrow" aria-hidden="true">&rarr;</span>
-    </a>
+    <div class="tile tile--dark">
+      <p class="tile__company">{siteConfig.companyName}</p>
+      <address class="tile__address">
+        {siteConfig.address.street}<br />
+        {siteConfig.address.zip} {siteConfig.address.city}<br />
+        <a href={`tel:${siteConfig.phone}`}>{siteConfig.phoneDisplay}</a><br />
+        <a href="#" class="email" data-name="info" data-domain="brunk-garten.de">
+          <span class="email__protected" aria-label="info at brunk-garten.de">ed.netrag-knurb@ofni</span>
+        </a>
+      </address>
+    </div>
   </section>
 </Layout>
 
@@ -115,29 +123,35 @@ import Layout from '../../components/Layout.astro';
     max-width: 45ch;
   }
 
-  .tile--dark p {
-    color: var(--color-text-inverse);
-  }
-
-  .tile__cta-text {
+  .tile__company {
     font-family: var(--font-family-heading);
     font-size: var(--font-size-xl);
     font-weight: 700;
-    opacity: 1;
+    margin-bottom: var(--space-md);
+    color: var(--color-text-inverse);
   }
 
-  .tile__arrow {
-    margin-top: auto;
-    padding-top: var(--space-xl);
-    font-size: var(--font-size-2xl);
-    opacity: 0.4;
-    transition: transform var(--transition-fast), opacity var(--transition-fast);
+  .tile__address {
+    font-style: normal;
+    line-height: 1.8;
+    color: var(--color-text-inverse);
   }
 
-  a.tile--dark:hover .tile__arrow {
-    transform: translateX(8px);
+  .tile__address a {
+    color: var(--color-text-inverse);
+    opacity: 0.8;
+    text-decoration: none;
+  }
+
+  .tile__address a:hover {
     opacity: 1;
     color: var(--color-primary);
+  }
+
+  /* E-Mail-Schutz: Text ist rückwärts im HTML, CSS dreht ihn visuell */
+  .email__protected {
+    unicode-bidi: bidi-override;
+    direction: rtl;
   }
 
   .back {
