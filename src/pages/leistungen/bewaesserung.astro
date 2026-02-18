@@ -89,13 +89,6 @@ import ContactTile from '../../components/ContactTile.astro';
 
     <div class="tile tile--image" style="background-image: url('/images/content/bewaesserung-rasensprenger.jpg');" role="img" aria-label="Rasensprenger bei Sonnenuntergang"></div>
 
-    <div class="tile tile--partners">
-      <div class="partner-logos">
-        <img src="/images/partner/hunter-badge.png" alt="Hunter University — Irrigation Installation Technician" loading="lazy" />
-        <img src="/images/partner/dvs-beregnung.jpg" alt="DVS Beregnung — Partner" loading="lazy" />
-      </div>
-    </div>
-
     <div class="tile tile--dark">
       <ContactTile />
     </div>
@@ -220,31 +213,6 @@ import ContactTile from '../../components/ContactTile.astro';
     padding: 0;
     background-size: cover;
     background-position: center;
-  }
-
-  .tile--partners {
-    background: var(--color-background-alt);
-  }
-
-  .partner-logos {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--space-xl);
-  }
-
-  .partner-logos img {
-    max-height: 45px;
-    max-width: 200px;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    opacity: 0.5;
-    transition: opacity var(--transition-base);
-  }
-
-  .partner-logos img:hover {
-    opacity: 0.8;
   }
 
   .back {
