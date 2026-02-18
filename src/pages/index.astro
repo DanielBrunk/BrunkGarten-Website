@@ -111,11 +111,10 @@ import { siteConfig } from '../config';
     </div>
 
     <div class="tile tile--alt tile--partners">
-      <p class="tile__label">Zertifizierungen & Partner</p>
       <div class="partner-logos">
-        <img src="/images/partner/galabau-experte.png" alt="Ihr Experte für Garten & Landschaft" width="300" height="95" loading="lazy" />
-        <img src="/images/partner/hunter-badge.png" alt="Hunter University — Irrigation Installation Technician" width="300" height="42" loading="lazy" />
-        <img src="/images/partner/dvs-beregnung.jpg" alt="DVS Beregnung — Partner" width="300" height="100" loading="lazy" />
+        <img src="/images/partner/galabau-experte.png" alt="Ihr Experte für Garten & Landschaft" loading="lazy" />
+        <img src="/images/partner/hunter-badge.png" alt="Hunter University — Irrigation Installation Technician" loading="lazy" />
+        <img src="/images/partner/dvs-beregnung.jpg" alt="DVS Beregnung — Partner" loading="lazy" />
       </div>
     </div>
 
@@ -353,21 +352,30 @@ import { siteConfig } from '../config';
   }
 
   /* Partner */
+  .tile--partners {
+    justify-content: center;
+    align-items: center;
+  }
+
   .tile--partners .partner-logos {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: var(--space-xl);
   }
 
   .tile--partners .partner-logos img {
-    height: 40px;
+    max-height: 45px;
+    max-width: 200px;
     width: auto;
-    opacity: 0.6;
+    height: auto;
+    object-fit: contain;
+    opacity: 0.5;
     transition: opacity var(--transition-base);
   }
 
   .tile--partners .partner-logos img:hover {
-    opacity: 1;
+    opacity: 0.8;
   }
 
   /* Info-Kachel */
