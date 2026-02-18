@@ -60,6 +60,8 @@ import ContactTile from '../../components/ContactTile.astro';
       </ul>
     </div>
 
+    <div class="tile tile--image" style="background-image: url('/images/content/artenschutz-steinriegel.jpg');" role="img" aria-label="Steinriegel als Habitat für Zauneidechsen"></div>
+
     <div class="tile tile--alt">
       <h2>Projekte</h2>
       <p class="tile__label">Referenz</p>
@@ -79,6 +81,8 @@ import ContactTile from '../../components/ContactTile.astro';
         Totholzstrukturen und naturnahe Bereiche schaffen wir wertvolle Habitate.
       </p>
     </div>
+
+    <div class="tile tile--image" style="background-image: url('/images/content/artenschutz-schmetterling.jpg');" role="img" aria-label="Kohlweißling auf Echinacea — naturnaher Garten"></div>
 
     <div class="tile tile--dark">
       <ContactTile />
@@ -132,6 +136,12 @@ import ContactTile from '../../components/ContactTile.astro';
     background: var(--color-text);
     color: var(--color-text-inverse);
     border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .tile--image {
+    padding: 0;
+    background-size: cover;
+    background-position: center;
   }
 
   .tile__icon {

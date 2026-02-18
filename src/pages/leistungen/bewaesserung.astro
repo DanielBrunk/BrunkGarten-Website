@@ -65,6 +65,8 @@ import ContactTile from '../../components/ContactTile.astro';
       </p>
     </div>
 
+    <div class="tile tile--image" style="background-image: url('/images/content/bewaesserung-steuerung.jpg');" role="img" aria-label="Hunter Bewässerungssteuerung mit Smartphone-App"></div>
+
     <div class="tile">
       <h2>Steuerung</h2>
       <p>
@@ -83,6 +85,16 @@ import ContactTile from '../../components/ContactTile.astro';
         <li>Reinigung und Reaktivierung von Zisternen</li>
         <li>Umbau auf smarte Steuerungen und Fernwartung</li>
       </ul>
+    </div>
+
+    <div class="tile tile--image" style="background-image: url('/images/content/bewaesserung-rasensprenger.jpg');" role="img" aria-label="Rasensprenger bei Sonnenuntergang"></div>
+
+    <div class="tile tile--partners">
+      <p class="tile__label">Zertifizierungen & Partner</p>
+      <div class="partner-logos">
+        <img src="/images/partner/hunter-badge.png" alt="Hunter University — Irrigation Installation Technician" width="300" height="42" loading="lazy" />
+        <img src="/images/partner/dvs-beregnung.jpg" alt="DVS Beregnung — Partner" width="300" height="100" loading="lazy" />
+      </div>
     </div>
 
     <div class="tile tile--dark">
@@ -203,6 +215,34 @@ import ContactTile from '../../components/ContactTile.astro';
 
   .tile__list li:last-child {
     border-bottom: none;
+  }
+
+  .tile--image {
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .tile--partners {
+    background: var(--color-background-alt);
+  }
+
+  .partner-logos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-xl);
+  }
+
+  .partner-logos img {
+    height: 40px;
+    width: auto;
+    opacity: 0.7;
+    transition: opacity var(--transition-base);
+  }
+
+  .partner-logos img:hover {
+    opacity: 1;
   }
 
   .back {

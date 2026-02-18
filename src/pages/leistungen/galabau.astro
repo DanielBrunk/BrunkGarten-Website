@@ -55,6 +55,13 @@ import ContactTile from '../../components/ContactTile.astro';
       </p>
     </div>
 
+    <div class="tile tile--partners">
+      <p class="tile__label">Zertifizierungen</p>
+      <div class="partner-logos">
+        <img src="/images/partner/galabau-experte.png" alt="Ihr Experte für Garten & Landschaft" width="300" height="95" loading="lazy" />
+      </div>
+    </div>
+
     <div class="tile tile--dark">
       <ContactTile />
     </div>
@@ -111,6 +118,28 @@ import ContactTile from '../../components/ContactTile.astro';
     background: var(--color-text);
     color: var(--color-text-inverse);
     border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .tile--partners {
+    background: var(--color-background-alt);
+  }
+
+  .partner-logos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-xl);
+  }
+
+  .partner-logos img {
+    height: 50px;
+    width: auto;
+    opacity: 0.7;
+    transition: opacity var(--transition-base);
+  }
+
+  .partner-logos img:hover {
+    opacity: 1;
   }
 
   .tile__icon {

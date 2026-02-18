@@ -38,6 +38,8 @@ import ContactTile from '../../components/ContactTile.astro';
       </p>
     </div>
 
+    <div class="tile tile--image" style="background-image: url('/images/content/maehroboter-automower.jpg');" role="img" aria-label="Husqvarna Automower auf gepflegtem Rasen"></div>
+
     <div class="tile tile--secondary">
       <h2>Kostenlos testen!</h2>
       <p>
@@ -137,6 +139,12 @@ import ContactTile from '../../components/ContactTile.astro';
     background: var(--color-text);
     color: var(--color-text-inverse);
     border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .tile--image {
+    padding: 0;
+    background-size: cover;
+    background-position: center;
   }
 
   .tile__icon {
