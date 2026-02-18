@@ -90,7 +90,27 @@ import { siteConfig } from '../config';
       <p class="tile__text">Naturnahe Gärten mit ökologischem Mehrwert.</p>
       <span class="tile__arrow" aria-hidden="true">&rarr;</span>
     </a>
-    <div class="tile tile--dark tile--info" id="kontakt">
+    <div class="tile tile--jobs">
+      <svg class="tile__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+      </svg>
+      <p class="tile__label">Stellenangebot</p>
+      <h2 class="tile__title">Wir suchen dich!</h2>
+      <p class="tile__text">
+        Ausgebildete Landschaftsgärtner*innen (Facharbeiter*innen oder Meister*innen).
+        Eigenverantwortliches Arbeiten in einem kleinen, engagierten Team.
+      </p>
+      <p class="tile__cta">
+        <a href="#kontakt" class="email" data-name="info" data-domain="brunk-garten.de">
+          <span class="email__protected" aria-label="info at brunk-garten.de">ed.netrag-knurb@ofni</span>
+        </a>
+      </p>
+    </div>
+
+    <div class="tile tile--dark tile--info tile--wide" id="kontakt">
       <p class="tile__company">{siteConfig.companyName}</p>
       <address class="tile__address">
         {siteConfig.address.street}<br />
@@ -288,6 +308,52 @@ import { siteConfig } from '../config';
     font-size: var(--font-size-sm);
   }
 
+  /* Stellenangebot */
+  .tile--jobs {
+    background: var(--color-primary);
+    color: var(--color-text);
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+
+  .tile--jobs .tile__icon {
+    opacity: 0.5;
+  }
+
+  .tile--jobs .tile__label {
+    opacity: 0.6;
+  }
+
+  .tile--jobs .tile__text {
+    opacity: 0.85;
+    max-width: 35ch;
+  }
+
+  .tile__cta {
+    margin-top: var(--space-lg);
+  }
+
+  .tile__cta a {
+    color: var(--color-text);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .tile__cta a:hover {
+    color: var(--color-secondary);
+  }
+
+  /* Volle Breite */
+  .tile--wide {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+    min-height: auto;
+    padding: var(--space-2xl) var(--space-3xl);
+  }
+
   /* Info-Kachel */
   .tile--info {
     justify-content: flex-start;
@@ -390,6 +456,10 @@ import { siteConfig } from '../config';
 
     .tile__title {
       font-size: var(--font-size-2xl);
+    }
+
+    .tile--wide {
+      grid-template-columns: 1fr;
     }
   }
 </style>
