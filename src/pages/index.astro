@@ -110,7 +110,16 @@ import { siteConfig } from '../config';
       </p>
     </div>
 
-    <div class="tile tile--dark tile--info tile--wide" id="kontakt">
+    <div class="tile tile--alt tile--partners">
+      <p class="tile__label">Zertifizierungen & Partner</p>
+      <div class="partner-logos">
+        <img src="/images/partner/galabau-experte.png" alt="Ihr Experte für Garten & Landschaft" width="300" height="95" loading="lazy" />
+        <img src="/images/partner/hunter-badge.png" alt="Hunter University — Irrigation Installation Technician" width="300" height="42" loading="lazy" />
+        <img src="/images/partner/dvs-beregnung.jpg" alt="DVS Beregnung — Partner" width="300" height="100" loading="lazy" />
+      </div>
+    </div>
+
+    <div class="tile tile--dark tile--info" id="kontakt">
       <p class="tile__company">{siteConfig.companyName}</p>
       <address class="tile__address">
         {siteConfig.address.street}<br />
@@ -343,15 +352,22 @@ import { siteConfig } from '../config';
     color: var(--color-secondary);
   }
 
-  /* Volle Breite */
-  .tile--wide {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+  /* Partner */
+  .tile--partners .partner-logos {
+    display: flex;
+    flex-direction: column;
     gap: var(--space-xl);
-    align-items: start;
-    min-height: auto;
-    padding: var(--space-2xl) var(--space-3xl);
+  }
+
+  .tile--partners .partner-logos img {
+    height: 40px;
+    width: auto;
+    opacity: 0.6;
+    transition: opacity var(--transition-base);
+  }
+
+  .tile--partners .partner-logos img:hover {
+    opacity: 1;
   }
 
   /* Info-Kachel */
@@ -456,10 +472,6 @@ import { siteConfig } from '../config';
 
     .tile__title {
       font-size: var(--font-size-2xl);
-    }
-
-    .tile--wide {
-      grid-template-columns: 1fr;
     }
   }
 </style>
