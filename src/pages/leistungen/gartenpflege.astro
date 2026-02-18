@@ -1,56 +1,177 @@
 ---
 import Layout from '../../components/Layout.astro';
-import Section from '../../components/Section.astro';
 ---
 
 <Layout title="Gartenpflege" description="Professionelle Gartenpflege — damit Ihr Garten das ganze Jahr über gepflegt und vital bleibt.">
-  <Section>
-    <div class="leistung">
-      <a href="/#leistungen" class="leistung__back">&larr; Alle Leistungen</a>
+  <!-- VARIANTE 2: Gestapelte Kacheln -->
+  <section class="tiles">
+    <div class="tile tile--primary tile--header">
+      <a href="/" class="back">&larr; Startseite</a>
+      <svg class="tile__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+      </svg>
       <h1>Gartenpflege</h1>
+      <p class="tile__subtitle">Regelmäßige Pflege erhält Funktion und Optik Ihres Gartens.</p>
+    </div>
+
+    <div class="tile tile--content">
+      <h2>Warum Gartenpflege?</h2>
       <p>
-        Warum Gartenpflege? Optischer Anspruch. Ein Garten ist eine planvolle, meist künstlerische
-        Anlage. Dabei verfolgt sie neben dem praktischen Nutzen immer auch ein optisches Ziel.
-        Funktionalität erhalten — funktionale Bereiche wie Wege, Terrassen und Rasen brauchen
-        regelmäßige Pflege.
+        Ein Garten ist eine planvolle, meist künstlerische Anlage. Dabei verfolgt sie
+        neben dem praktischen Nutzen immer auch ein optisches Ziel. Funktionale Bereiche
+        wie Wege, Terrassen und Rasen brauchen regelmäßige Pflege.
       </p>
+    </div>
+
+    <div class="tile tile--alt tile--content">
+      <h2>Unser Angebot</h2>
       <p>
         Wir bieten regelmäßige Gartenpflege an — von Rasenmähen und Heckenschnitt bis hin zu
         Staudenpflege, Düngung und saisonaler Bepflanzung. Abgestimmt auf Ihren Garten
         und Ihre Wünsche.
       </p>
-      <a href="/#kontakt" class="btn">Beratungsgespräch vereinbaren</a>
     </div>
-  </Section>
+
+    <a href="/#kontakt" class="tile tile--dark tile--cta">
+      <p>Beratungsgespräch vereinbaren</p>
+      <span class="tile__arrow" aria-hidden="true">&rarr;</span>
+    </a>
+  </section>
 </Layout>
 
 <style>
-  .leistung {
-    max-width: var(--max-width-narrow);
+  .tiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1200px;
     margin-inline: auto;
   }
 
-  .leistung__back {
-    display: inline-block;
-    margin-bottom: var(--space-xl);
-    font-size: var(--font-size-sm);
-    color: var(--color-text-light);
+  .tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--space-2xl) var(--space-3xl);
+    min-height: 50vh;
+    text-decoration: none;
+    color: var(--color-text);
+    background: var(--color-background);
+    border-bottom: 1px solid var(--color-border);
   }
 
-  .leistung__back:hover {
+  .tile:nth-child(odd) {
+    border-right: 1px solid var(--color-border);
+  }
+
+  .tile--primary {
+    background: var(--color-primary);
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+
+  .tile--alt {
+    background: var(--color-background-alt);
+  }
+
+  .tile--dark {
+    background: var(--color-text);
+    color: var(--color-text-inverse);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .tile--header {
+    grid-column: 1 / -1;
+    min-height: 50vh;
+  }
+
+  .tile--content h2 {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .tile--content p {
+    color: var(--color-text-light);
+    max-width: 45ch;
+  }
+
+  .tile--cta {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    min-height: auto;
+    padding: var(--space-xl) var(--space-3xl);
+    transition: background-color var(--transition-base);
+  }
+
+  .tile--cta:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 15%, var(--color-text));
+  }
+
+  .tile--cta p {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+  }
+
+  .tile__icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: var(--space-lg);
+    opacity: 0.7;
+  }
+
+  .tile h1 {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-4xl);
+    line-height: var(--line-height-tight);
+    margin-bottom: var(--space-md);
+  }
+
+  .tile__subtitle {
+    font-size: var(--font-size-lg);
+    opacity: 0.75;
+    max-width: 40ch;
+  }
+
+  .tile__arrow {
+    font-size: var(--font-size-2xl);
+    opacity: 0.4;
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
+  }
+
+  .tile--cta:hover .tile__arrow {
+    transform: translateX(8px);
+    opacity: 1;
     color: var(--color-primary);
   }
 
-  .leistung h1 {
+  .back {
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+    opacity: 0.6;
+    text-decoration: none;
     margin-bottom: var(--space-xl);
   }
 
-  .leistung p {
-    margin-bottom: var(--space-md);
-    color: var(--color-text-light);
+  .back:hover {
+    opacity: 1;
   }
 
-  .leistung .btn {
-    margin-top: var(--space-xl);
+  @media (max-width: 639px) {
+    .tiles {
+      grid-template-columns: 1fr;
+    }
+
+    .tile {
+      padding: var(--space-xl) var(--space-lg);
+      border-right: none;
+      min-height: 40vh;
+    }
+
+    .tile:nth-child(odd) {
+      border-right: none;
+    }
   }
 </style>
