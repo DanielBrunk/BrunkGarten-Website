@@ -1,6 +1,6 @@
 ---
 import Layout from '../../components/Layout.astro';
-import { siteConfig } from '../../config';
+import ContactTile from '../../components/ContactTile.astro';
 ---
 
 <Layout title="Gartenpflege" description="Professionelle Gartenpflege — damit Ihr Garten das ganze Jahr über gepflegt und vital bleibt.">
@@ -34,15 +34,7 @@ import { siteConfig } from '../../config';
     </div>
 
     <div class="tile tile--dark">
-      <p class="tile__company">{siteConfig.companyName}</p>
-      <address class="tile__address">
-        {siteConfig.address.street}<br />
-        {siteConfig.address.zip} {siteConfig.address.city}<br />
-        <a href={`tel:${siteConfig.phone}`}>{siteConfig.phoneDisplay}</a><br />
-        <a href="#" class="email" data-name="info" data-domain="brunk-garten.de">
-          <span class="email__protected" aria-label="info at brunk-garten.de">ed.netrag-knurb@ofni</span>
-        </a>
-      </address>
+      <ContactTile />
     </div>
   </section>
 </Layout>
@@ -61,7 +53,6 @@ import { siteConfig } from '../../config';
     justify-content: center;
     min-height: 50vh;
     padding: var(--space-2xl) var(--space-3xl);
-    text-decoration: none;
     color: var(--color-text);
     background: var(--color-background);
     border-bottom: 1px solid var(--color-border);
@@ -84,12 +75,6 @@ import { siteConfig } from '../../config';
     background: var(--color-text);
     color: var(--color-text-inverse);
     border-color: rgba(255, 255, 255, 0.1);
-    transition: background-color var(--transition-base);
-  }
-
-  a.tile--dark:hover {
-    background-color: color-mix(in srgb, var(--color-primary) 15%, var(--color-text));
-    color: var(--color-text-inverse);
   }
 
   .tile__icon {
@@ -109,7 +94,6 @@ import { siteConfig } from '../../config';
   .tile__subtitle {
     font-size: var(--font-size-md);
     opacity: 0.75;
-    max-width: 40ch;
   }
 
   .tile h2 {
@@ -121,37 +105,6 @@ import { siteConfig } from '../../config';
   .tile p {
     color: var(--color-text-light);
     max-width: 45ch;
-  }
-
-  .tile__company {
-    font-family: var(--font-family-heading);
-    font-size: var(--font-size-xl);
-    font-weight: 700;
-    margin-bottom: var(--space-md);
-    color: var(--color-text-inverse);
-  }
-
-  .tile__address {
-    font-style: normal;
-    line-height: 1.8;
-    color: var(--color-text-inverse);
-  }
-
-  .tile__address a {
-    color: var(--color-text-inverse);
-    opacity: 0.8;
-    text-decoration: none;
-  }
-
-  .tile__address a:hover {
-    opacity: 1;
-    color: var(--color-primary);
-  }
-
-  /* E-Mail-Schutz: Text ist rückwärts im HTML, CSS dreht ihn visuell */
-  .email__protected {
-    unicode-bidi: bidi-override;
-    direction: rtl;
   }
 
   .back {

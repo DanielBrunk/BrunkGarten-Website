@@ -1,113 +1,141 @@
 ---
 import Layout from '../../components/Layout.astro';
+import ContactTile from '../../components/ContactTile.astro';
 ---
 
 <Layout title="GaLaBau" description="Garten- und Landschaftsbau vom Meisterbetrieb. Planung, Neuanlage und Umgestaltung.">
-  <!-- VARIANTE 1: Split-Tile -->
-  <section class="split">
-    <div class="split__left">
-      <svg class="split__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <section class="tiles">
+    <div class="tile tile--primary">
+      <a href="/" class="back">&larr; Startseite</a>
+      <svg class="tile__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M21.56 4.56a1.5 1.5 0 0 1 0 2.122l-.47.47a3 3 0 0 1-4.212-.03 3 3 0 0 1 0-4.243l.44-.44a1.5 1.5 0 0 1 2.121 0z" />
         <path d="M3 22a1 1 0 0 1-1-1v-3.586a1 1 0 0 1 .293-.707l3.355-3.355a1.205 1.205 0 0 1 1.704 0l3.296 3.296a1.205 1.205 0 0 1 0 1.704l-3.355 3.355a1 1 0 0 1-.707.293z" />
         <path d="m9 15 7.879-7.878" />
       </svg>
       <h1>GaLaBau</h1>
-      <p class="split__subtitle">Garten- und Landschaftsbau<br />vom Meisterbetrieb</p>
+      <p class="tile__subtitle">Garten- und Landschaftsbau vom Meisterbetrieb</p>
     </div>
-    <div class="split__right">
-      <a href="/" class="back">&larr; Startseite</a>
+
+    <div class="tile">
+      <h2>Planung & Neuanlage</h2>
       <p>
         Von der Planung über die Neuanlage bis zur Umgestaltung bestehender Gärten —
         wir setzen Ihr Projekt fachgerecht und termingerecht um.
       </p>
+    </div>
+
+    <div class="tile tile--alt">
+      <h2>Leistungsspektrum</h2>
       <p>
-        Unser Leistungsspektrum umfasst Pflasterarbeiten, Naturstein, Holzterrassen,
-        Mauern, Treppen, Zäune, Sichtschutz, Erdarbeiten, Bepflanzung und vieles mehr.
-        Alles aus einer Hand, von der ersten Skizze bis zur fertigen Anlage.
+        Pflasterarbeiten, Naturstein, Holzterrassen, Mauern, Treppen, Zäune, Sichtschutz,
+        Erdarbeiten, Bepflanzung und vieles mehr. Alles aus einer Hand, von der ersten
+        Skizze bis zur fertigen Anlage.
       </p>
-      <a href="/#kontakt" class="btn">Projekt besprechen</a>
+    </div>
+
+    <div class="tile tile--dark">
+      <ContactTile />
     </div>
   </section>
 </Layout>
 
 <style>
-  .split {
+  .tiles {
     display: grid;
     grid-template-columns: 1fr 1fr;
     max-width: 1200px;
     margin-inline: auto;
-    min-height: calc(100vh - 80px);
   }
 
-  .split__left {
+  .tile {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-height: 50vh;
     padding: var(--space-2xl) var(--space-3xl);
-    background: var(--color-primary);
     color: var(--color-text);
+    background: var(--color-background);
+    border-bottom: 1px solid var(--color-border);
   }
 
-  .split__icon {
+  .tile:nth-child(odd) {
+    border-right: 1px solid var(--color-border);
+  }
+
+  .tile--primary {
+    background: var(--color-primary);
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+
+  .tile--alt {
+    background: var(--color-background-alt);
+  }
+
+  .tile--dark {
+    background: var(--color-text);
+    color: var(--color-text-inverse);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .tile__icon {
     width: 48px;
     height: 48px;
     margin-bottom: var(--space-lg);
     opacity: 0.7;
   }
 
-  .split__left h1 {
+  .tile h1 {
     font-family: var(--font-family-heading);
-    font-size: var(--font-size-4xl);
+    font-size: var(--font-size-3xl);
     line-height: var(--line-height-tight);
     margin-bottom: var(--space-md);
   }
 
-  .split__subtitle {
+  .tile__subtitle {
     font-size: var(--font-size-md);
     opacity: 0.75;
   }
 
-  .split__right {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: var(--space-2xl) var(--space-3xl);
-    background: var(--color-background);
+  .tile h2 {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .tile p {
+    color: var(--color-text-light);
+    max-width: 45ch;
   }
 
   .back {
     font-size: var(--font-size-sm);
-    color: var(--color-text-light);
+    color: var(--color-text);
+    opacity: 0.6;
     text-decoration: none;
     margin-bottom: var(--space-xl);
   }
 
   .back:hover {
-    color: var(--color-primary);
-  }
-
-  .split__right p {
-    margin-bottom: var(--space-md);
-    color: var(--color-text-light);
-    max-width: 45ch;
-  }
-
-  .split__right .btn {
-    margin-top: var(--space-xl);
+    opacity: 1;
   }
 
   @media (max-width: 639px) {
-    .split {
+    .tiles {
       grid-template-columns: 1fr;
     }
 
-    .split__left {
-      min-height: 40vh;
+    .tile {
+      min-height: 45vh;
       padding: var(--space-xl) var(--space-lg);
+      border-right: none;
     }
 
-    .split__right {
-      padding: var(--space-xl) var(--space-lg);
+    .tile:nth-child(odd) {
+      border-right: none;
+    }
+
+    .tile h1 {
+      font-size: var(--font-size-2xl);
     }
   }
 </style>

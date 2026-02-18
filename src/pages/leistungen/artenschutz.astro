@@ -1,55 +1,145 @@
 ---
 import Layout from '../../components/Layout.astro';
-import Section from '../../components/Section.astro';
+import ContactTile from '../../components/ContactTile.astro';
 ---
 
-<Layout title="Artenschutz und Habitatpflege" description="Als Landschaftsgärtner setzen wir uns für den Schutz der Arten und den Erhalt von Lebensräumen ein.">
-  <Section>
-    <div class="leistung">
-      <a href="/#leistungen" class="leistung__back">&larr; Alle Leistungen</a>
-      <h1>Artenschutz und Habitatpflege</h1>
+<Layout title="Artenschutz" description="Naturnahe Gärten mit ökologischem Mehrwert — Schutz der Arten und Erhalt von Lebensräumen.">
+  <section class="tiles">
+    <div class="tile tile--primary">
+      <a href="/" class="back">&larr; Startseite</a>
+      <svg class="tile__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M16 7h.01" />
+        <path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20" />
+        <path d="m20 7 2 .5-2 .5" />
+        <path d="M10 18v3" />
+        <path d="M14 17.75V21" />
+        <path d="M7 18a6 6 0 0 0 3.84-10.61" />
+      </svg>
+      <h1>Artenschutz</h1>
+      <p class="tile__subtitle">Naturnahe Gärten mit ökologischem Mehrwert.</p>
+    </div>
+
+    <div class="tile">
+      <h2>Unsere Verantwortung</h2>
       <p>
         Als Landschaftsgärtner und Landschaftsgärtnerinnen sind wir stark mit der Natur verbunden
         und setzen uns entsprechend auch für den Schutz der Arten und den Erhalt bzw. die Förderung
         von Lebensräumen ein.
       </p>
+    </div>
+
+    <div class="tile tile--alt">
+      <h2>Lebensraum schaffen</h2>
       <p>
         Wir gestalten Gärten so, dass sie nicht nur für Menschen schön sind, sondern auch
         Lebensraum für Insekten, Vögel und Kleintiere bieten. Durch gezielte Pflanzkonzepte,
         Totholzstrukturen und naturnahe Bereiche schaffen wir wertvolle Habitate.
       </p>
-      <a href="/#kontakt" class="btn">Beratungsgespräch vereinbaren</a>
     </div>
-  </Section>
+
+    <div class="tile tile--dark">
+      <ContactTile />
+    </div>
+  </section>
 </Layout>
 
 <style>
-  .leistung {
-    max-width: var(--max-width-narrow);
+  .tiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1200px;
     margin-inline: auto;
   }
 
-  .leistung__back {
-    display: inline-block;
-    margin-bottom: var(--space-xl);
-    font-size: var(--font-size-sm);
-    color: var(--color-text-light);
+  .tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 50vh;
+    padding: var(--space-2xl) var(--space-3xl);
+    color: var(--color-text);
+    background: var(--color-background);
+    border-bottom: 1px solid var(--color-border);
   }
 
-  .leistung__back:hover {
-    color: var(--color-primary);
+  .tile:nth-child(odd) {
+    border-right: 1px solid var(--color-border);
   }
 
-  .leistung h1 {
-    margin-bottom: var(--space-xl);
+  .tile--primary {
+    background: var(--color-primary);
+    border-color: rgba(0, 0, 0, 0.08);
   }
 
-  .leistung p {
+  .tile--alt {
+    background: var(--color-background-alt);
+  }
+
+  .tile--dark {
+    background: var(--color-text);
+    color: var(--color-text-inverse);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .tile__icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: var(--space-lg);
+    opacity: 0.7;
+  }
+
+  .tile h1 {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-3xl);
+    line-height: var(--line-height-tight);
     margin-bottom: var(--space-md);
-    color: var(--color-text-light);
   }
 
-  .leistung .btn {
-    margin-top: var(--space-xl);
+  .tile__subtitle {
+    font-size: var(--font-size-md);
+    opacity: 0.75;
+  }
+
+  .tile h2 {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .tile p {
+    color: var(--color-text-light);
+    max-width: 45ch;
+  }
+
+  .back {
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+    opacity: 0.6;
+    text-decoration: none;
+    margin-bottom: var(--space-xl);
+  }
+
+  .back:hover {
+    opacity: 1;
+  }
+
+  @media (max-width: 639px) {
+    .tiles {
+      grid-template-columns: 1fr;
+    }
+
+    .tile {
+      min-height: 45vh;
+      padding: var(--space-xl) var(--space-lg);
+      border-right: none;
+    }
+
+    .tile:nth-child(odd) {
+      border-right: none;
+    }
+
+    .tile h1 {
+      font-size: var(--font-size-2xl);
+    }
   }
 </style>

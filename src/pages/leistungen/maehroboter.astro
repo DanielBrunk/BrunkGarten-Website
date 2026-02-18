@@ -1,53 +1,144 @@
 ---
 import Layout from '../../components/Layout.astro';
-import Section from '../../components/Section.astro';
+import ContactTile from '../../components/ContactTile.astro';
 ---
 
 <Layout title="Mähroboter" description="Husqvarna Automower — Verkauf und Installation vom zertifizierten Fachbetrieb.">
-  <Section>
-    <div class="leistung">
-      <a href="/#leistungen" class="leistung__back">&larr; Alle Leistungen</a>
+  <section class="tiles">
+    <div class="tile tile--primary">
+      <a href="/" class="back">&larr; Startseite</a>
+      <svg class="tile__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 8V4H8" />
+        <rect width="16" height="12" x="4" y="8" rx="2" />
+        <path d="M2 14h2" />
+        <path d="M20 14h2" />
+        <path d="M15 13v2" />
+        <path d="M9 13v2" />
+      </svg>
       <h1>Mähroboter</h1>
+      <p class="tile__subtitle">Husqvarna Automower — Verkauf, Installation und Service.</p>
+    </div>
+
+    <div class="tile">
+      <h2>Zukunft im Garten</h2>
       <p>
         „In 10 Jahren gehören Mähroboter in den Garten, wie heute Spülmaschinen in die Küche."
-      </p>
-      <p>
         Wir setzen auf den Marktführer Husqvarna Automower und sind auf deren Verkauf und
-        Installation spezialisiert. Von der Beratung über die Planung des Begrenzungskabels
-        bis zur Inbetriebnahme — alles aus einer Hand.
+        Installation spezialisiert.
       </p>
-      <a href="/#kontakt" class="btn">Beratungsgespräch vereinbaren</a>
     </div>
-  </Section>
+
+    <div class="tile tile--alt">
+      <h2>Alles aus einer Hand</h2>
+      <p>
+        Von der Beratung über die Planung des Begrenzungskabels bis zur Inbetriebnahme —
+        alles aus einer Hand. Wir kümmern uns auch um Wartung und Service.
+      </p>
+    </div>
+
+    <div class="tile tile--dark">
+      <ContactTile />
+    </div>
+  </section>
 </Layout>
 
 <style>
-  .leistung {
-    max-width: var(--max-width-narrow);
+  .tiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1200px;
     margin-inline: auto;
   }
 
-  .leistung__back {
-    display: inline-block;
-    margin-bottom: var(--space-xl);
-    font-size: var(--font-size-sm);
-    color: var(--color-text-light);
+  .tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 50vh;
+    padding: var(--space-2xl) var(--space-3xl);
+    color: var(--color-text);
+    background: var(--color-background);
+    border-bottom: 1px solid var(--color-border);
   }
 
-  .leistung__back:hover {
-    color: var(--color-primary);
+  .tile:nth-child(odd) {
+    border-right: 1px solid var(--color-border);
   }
 
-  .leistung h1 {
-    margin-bottom: var(--space-xl);
+  .tile--primary {
+    background: var(--color-primary);
+    border-color: rgba(0, 0, 0, 0.08);
   }
 
-  .leistung p {
+  .tile--alt {
+    background: var(--color-background-alt);
+  }
+
+  .tile--dark {
+    background: var(--color-text);
+    color: var(--color-text-inverse);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .tile__icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: var(--space-lg);
+    opacity: 0.7;
+  }
+
+  .tile h1 {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-3xl);
+    line-height: var(--line-height-tight);
     margin-bottom: var(--space-md);
-    color: var(--color-text-light);
   }
 
-  .leistung .btn {
-    margin-top: var(--space-xl);
+  .tile__subtitle {
+    font-size: var(--font-size-md);
+    opacity: 0.75;
+  }
+
+  .tile h2 {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .tile p {
+    color: var(--color-text-light);
+    max-width: 45ch;
+  }
+
+  .back {
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+    opacity: 0.6;
+    text-decoration: none;
+    margin-bottom: var(--space-xl);
+  }
+
+  .back:hover {
+    opacity: 1;
+  }
+
+  @media (max-width: 639px) {
+    .tiles {
+      grid-template-columns: 1fr;
+    }
+
+    .tile {
+      min-height: 45vh;
+      padding: var(--space-xl) var(--space-lg);
+      border-right: none;
+    }
+
+    .tile:nth-child(odd) {
+      border-right: none;
+    }
+
+    .tile h1 {
+      font-size: var(--font-size-2xl);
+    }
   }
 </style>

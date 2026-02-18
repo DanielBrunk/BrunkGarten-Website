@@ -1,85 +1,141 @@
 ---
 import Layout from '../../components/Layout.astro';
+import ContactTile from '../../components/ContactTile.astro';
 ---
 
-<Layout title="Bewässerungsanlagen" description="Professionelle Bewässerungsanlagen mit mehr als 10 Jahren Erfahrung.">
-  <!-- VARIANTE 3: Full-Tile -->
-  <section class="fulltile">
-    <a href="/" class="back">&larr; Startseite</a>
-    <svg class="fulltile__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z" />
-      <path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97" />
-    </svg>
-    <h1>Bewässerungsanlagen</h1>
-    <p>
-      Professionelle Bewässerungsanlagen mit mehr als 10 Jahren Erfahrung. Ob automatisch
-      oder manuell gesteuert — Systeme für Hecken sind unsere meisterbauten Lösungen.
-      Sie bringen Wasser genau dorthin, wo es gebraucht wird.
-    </p>
-    <p>
-      Als zertifizierter Hunter Irrigation Installation Technician planen und installieren
-      wir Bewässerungssysteme für Privatgärten, Gewerbeflächen und öffentliche Anlagen.
-      Wassersparend, zuverlässig und individuell auf Ihre Bedürfnisse abgestimmt.
-    </p>
-    <a href="/#kontakt" class="btn">Beratungsgespräch vereinbaren</a>
+<Layout title="Bewässerung" description="Professionelle Bewässerungsanlagen mit mehr als 10 Jahren Erfahrung.">
+  <section class="tiles">
+    <div class="tile tile--primary">
+      <a href="/" class="back">&larr; Startseite</a>
+      <svg class="tile__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z" />
+        <path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97" />
+      </svg>
+      <h1>Bewässerung</h1>
+      <p class="tile__subtitle">Professionelle Bewässerungsanlagen. Automatisch, wassersparend, zuverlässig.</p>
+    </div>
+
+    <div class="tile">
+      <h2>Erfahrung & Technik</h2>
+      <p>
+        Professionelle Bewässerungsanlagen mit mehr als 10 Jahren Erfahrung. Ob automatisch
+        oder manuell gesteuert — Systeme für Hecken sind unsere meisterbauten Lösungen.
+        Sie bringen Wasser genau dorthin, wo es gebraucht wird.
+      </p>
+    </div>
+
+    <div class="tile tile--alt">
+      <h2>Zertifizierte Planung</h2>
+      <p>
+        Als zertifizierter Hunter Irrigation Installation Technician planen und installieren
+        wir Bewässerungssysteme für Privatgärten, Gewerbeflächen und öffentliche Anlagen.
+        Wassersparend, zuverlässig und individuell abgestimmt.
+      </p>
+    </div>
+
+    <div class="tile tile--dark">
+      <ContactTile />
+    </div>
   </section>
 </Layout>
 
 <style>
-  .fulltile {
+  .tiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1200px;
+    margin-inline: auto;
+  }
+
+  .tile {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: calc(100vh - 80px);
-    max-width: 1200px;
-    margin-inline: auto;
+    min-height: 50vh;
     padding: var(--space-2xl) var(--space-3xl);
+    color: var(--color-text);
+    background: var(--color-background);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tile:nth-child(odd) {
+    border-right: 1px solid var(--color-border);
+  }
+
+  .tile--primary {
+    background: var(--color-primary);
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+
+  .tile--alt {
     background: var(--color-background-alt);
+  }
+
+  .tile--dark {
+    background: var(--color-text);
+    color: var(--color-text-inverse);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .tile__icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: var(--space-lg);
+    opacity: 0.7;
+  }
+
+  .tile h1 {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-3xl);
+    line-height: var(--line-height-tight);
+    margin-bottom: var(--space-md);
+  }
+
+  .tile__subtitle {
+    font-size: var(--font-size-md);
+    opacity: 0.75;
+  }
+
+  .tile h2 {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .tile p {
+    color: var(--color-text-light);
+    max-width: 45ch;
   }
 
   .back {
     font-size: var(--font-size-sm);
-    color: var(--color-text-light);
+    color: var(--color-text);
+    opacity: 0.6;
     text-decoration: none;
     margin-bottom: var(--space-xl);
   }
 
   .back:hover {
-    color: var(--color-primary);
-  }
-
-  .fulltile__icon {
-    width: 48px;
-    height: 48px;
-    margin-bottom: var(--space-lg);
-    opacity: 0.5;
-    color: var(--color-text);
-  }
-
-  .fulltile h1 {
-    font-family: var(--font-family-heading);
-    font-size: var(--font-size-4xl);
-    line-height: var(--line-height-tight);
-    margin-bottom: var(--space-xl);
-  }
-
-  .fulltile p {
-    margin-bottom: var(--space-md);
-    color: var(--color-text-light);
-    max-width: 55ch;
-  }
-
-  .fulltile .btn {
-    margin-top: var(--space-xl);
+    opacity: 1;
   }
 
   @media (max-width: 639px) {
-    .fulltile {
-      padding: var(--space-xl) var(--space-lg);
+    .tiles {
+      grid-template-columns: 1fr;
     }
 
-    .fulltile h1 {
-      font-size: var(--font-size-3xl);
+    .tile {
+      min-height: 45vh;
+      padding: var(--space-xl) var(--space-lg);
+      border-right: none;
+    }
+
+    .tile:nth-child(odd) {
+      border-right: none;
+    }
+
+    .tile h1 {
+      font-size: var(--font-size-2xl);
     }
   }
 </style>
