@@ -1,51 +1,58 @@
 ---
 import Layout from '../components/Layout.astro';
-import Section from '../components/Section.astro';
 import { siteConfig } from '../config';
 ---
 
 <Layout title={`Impressum – ${siteConfig.companyName}`} description="Impressum und Angaben gemäß § 5 TMG.">
-  <Section title="Impressum">
-    <div class="legal">
-      <h3>Angaben gemäß § 5 TMG</h3>
+  <section class="tiles">
+    <div class="tile tile--primary">
+      <a href="/" class="back">&larr; Startseite</a>
+      <h1>Impressum</h1>
+      <p class="tile__subtitle">Angaben gemäß § 5 TMG</p>
+    </div>
+
+    <div class="tile">
+      <h2>Betreiber</h2>
       <p>
         {siteConfig.companyName}<br />
         {siteConfig.owner}<br />
         {siteConfig.address.street}<br />
         {siteConfig.address.zip} {siteConfig.address.city}
       </p>
-
-      <h3>Kontakt</h3>
-      <p>
+      <p class="tile__contact">
         Telefon: <a href={`tel:${siteConfig.phone}`}>{siteConfig.phoneDisplay}</a><br />
         E-Mail: <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
       </p>
+    </div>
 
-      <h3>Umsatzsteuer-ID</h3>
-      <p>
-        Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:<br />
-        {siteConfig.legal.taxId}
-      </p>
+    <div class="tile tile--alt">
+      <h2>Registrierung</h2>
+      <dl class="tile__dl">
+        <dt>Umsatzsteuer-ID</dt>
+        <dd>{siteConfig.legal.taxId}</dd>
+        <dt>Handelsregister</dt>
+        <dd>{siteConfig.legal.tradeRegister}</dd>
+        <dt>Aufsichtsbehörde</dt>
+        <dd>{siteConfig.legal.supervisoryAuthority}</dd>
+      </dl>
+    </div>
 
-      <h3>Handelsregister</h3>
-      <p>{siteConfig.legal.tradeRegister}</p>
-
-      <h3>Aufsichtsbehörde</h3>
-      <p>{siteConfig.legal.supervisoryAuthority}</p>
-
-      <h3>Streitschlichtung</h3>
+    <div class="tile">
+      <h2>Streitschlichtung</h2>
       <p>
         Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
         <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">
-          https://ec.europa.eu/consumers/odr/
+          ec.europa.eu/consumers/odr
         </a>
       </p>
       <p>
         Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
         Verbraucherschlichtungsstelle teilzunehmen.
       </p>
+    </div>
 
-      <h3>Haftung für Inhalte</h3>
+    <div class="tile tile--alt">
+      <h2>Haftung für Inhalte</h2>
       <p>
         Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten
         nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als
@@ -53,8 +60,10 @@ import { siteConfig } from '../config';
         Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige
         Tätigkeit hinweisen.
       </p>
+    </div>
 
-      <h3>Haftung für Links</h3>
+    <div class="tile">
+      <h2>Haftung für Links</h2>
       <p>
         Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen
         Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.
@@ -62,26 +71,129 @@ import { siteConfig } from '../config';
         der Seiten verantwortlich.
       </p>
     </div>
-  </Section>
+  </section>
 </Layout>
 
 <style>
-  .legal {
-    max-width: var(--max-width-narrow);
+  .tiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1200px;
     margin-inline: auto;
   }
 
-  .legal h3 {
-    margin-top: var(--space-xl);
-    margin-bottom: var(--space-sm);
-    font-size: var(--font-size-lg);
+  .tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 50vh;
+    padding: var(--space-2xl) var(--space-3xl);
+    color: var(--color-text);
+    background: var(--color-background);
+    border-bottom: 1px solid var(--color-border);
   }
 
-  .legal h3:first-child {
-    margin-top: 0;
+  .tile:nth-child(odd) {
+    border-right: 1px solid var(--color-border);
   }
 
-  .legal p + p {
+  .tile--primary {
+    background: var(--color-primary);
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+
+  .tile--alt {
+    background: var(--color-background-alt);
+  }
+
+  .tile h1 {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-3xl);
+    line-height: var(--line-height-tight);
+    margin-bottom: var(--space-md);
+  }
+
+  .tile__subtitle {
+    font-size: var(--font-size-md);
+    opacity: 0.75;
+  }
+
+  .tile h2 {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .tile p {
+    color: var(--color-text-light);
+    max-width: 45ch;
+  }
+
+  .tile p + p {
     margin-top: var(--space-md);
+  }
+
+  .tile__contact {
+    margin-top: var(--space-lg);
+  }
+
+  .tile__contact a {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .tile__dl {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .tile__dl dt {
+    font-weight: 700;
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-xs);
+  }
+
+  .tile__dl dd {
+    color: var(--color-text-light);
+    font-size: var(--font-size-sm);
+    max-width: 45ch;
+  }
+
+  .tile a:not(.back) {
+    color: var(--color-text);
+  }
+
+  .back {
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+    opacity: 0.6;
+    text-decoration: none;
+    margin-bottom: var(--space-xl);
+  }
+
+  .back:hover {
+    opacity: 1;
+  }
+
+  @media (max-width: 639px) {
+    .tiles {
+      grid-template-columns: 1fr;
+    }
+
+    .tile {
+      min-height: 45vh;
+      padding: var(--space-xl) var(--space-lg);
+      border-right: none;
+    }
+
+    .tile:nth-child(odd) {
+      border-right: none;
+    }
+
+    .tile h1 {
+      font-size: var(--font-size-2xl);
+    }
   }
 </style>
